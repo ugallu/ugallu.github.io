@@ -50,6 +50,10 @@ body{
   background-color: rgba(255, 0, 0, 0.3);
 }
 
+#content table{
+  font-size: 11px;
+}
+
 #status #navigation{
   height: 32px;
   margin:auto;
