@@ -3,7 +3,7 @@ $(function(){
 
   $("#logout_btn").on("click", function(){
     console.log("ee");
-    window.location.href = "/login.html";
+    window.location.href = "/index.html";
   });
   // set menu
   $('#tables_btn').on("click",function(){
