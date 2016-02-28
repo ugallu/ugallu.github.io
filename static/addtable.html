@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="css/rbow.css">
+  <link rel="stylesheet" type="text/css" href="css/skeleton/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="css/skeleton/normalize.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:600&effect=anaglyph' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <title>RBow</title>
+</head>
+<body>
+<div id="content" class="effect6">
+
+<div id="add_function">
+
+<form>
+  <div class="row">
+        <div class="five columns offset-by-one">
+        </br>
+      <h2>Add Table</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <label for="tableName">Table name</label>
+      <input class="u-full-width" type="text" placeholder="tableName" id="tableName">
+    </div>
+  </div>
+  <div class="row">
+    <div class="ten columns offset-by-one">
+      <label for="tableName">Select function</label>
+      <select class="u-full-width" id="functionSelector">
+        <option value="Option 1">MD5</option>
+        <option value="Option 2">SHA-512</option>
+      </select>
+    </div>
+  </div>
+  </br>
+  <div class="row">
+    <div class="ten columns  offset-by-one">
+      <label for="inputSet">Input - in JSON format</label>
+      <textarea class="u-full-width" placeholder="[['input0_param0','input0_param1'],['input1_param0','input1_param1']]" id="functionCode"></textarea>
+  </div>
+  </div>
+  <div class="row">
+    <div class="six columns offset-by-six">
+      <input class="button" type="submit" value="Cancel">
+      <input class="button-primary" type="submit" value="Create">
+    </div>
+  </div>
+
+</form>
+</div>
