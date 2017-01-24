@@ -1,0 +1,22 @@
+
+#processing_status.flicker {
+    color:#e8e8e8;
+    animation:flick 5s !important;
+  -moz-animation:flick 5s infinite !important; /* Firefox */
+-webkit-animation:flick 5s infinite !important; /* Safari and Chrome */
+  }
+
+
+  @-moz-keyframes flick /* Firefox */
+{
+0%   {color:#c0c0c0;}
+50%   {color:#fff;}
+100%  {color:#c0c0c0;}
+}
+
+    @-webkit-keyframes flick /* Firefox */
+{
+0%    {color:#c0c0c0;}
+50%   {color:#fff;}
+100%   {color:#c0c0c0;}
+}

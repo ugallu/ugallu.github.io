@@ -1,0 +1,267 @@
+body{
+  margin: 0;
+  background-color: #eee;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                not supported by any browser */
+}
+
+#content{
+  width: 600px;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 52px;
+  background-color: #fff;
+}
+
+
+#status{
+  border-collapse: collapse;
+  display: table;
+  margin:0;
+  height: 42px;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  border-top: 1px solid #e0e0e0;
+  background-color: #3f3f3f;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+#status .status_row > div{
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+.last{
+  width: inherit;
+  text-align: right;
+}
+.devi{
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+#content table{
+  font-size: 11px;
+}
+
+#status #navigation{
+  height: 32px;
+  margin:auto;
+  color: #e4e4e4;
+}
+#processor_wrapper{
+  width: 200px;
+  padding: 0px 20px;
+  font-size: x-large;
+  padding-left: 10px;
+}
+
+#processor_wrapper > div{
+  display: inline-block;
+}
+
+#processing_status{
+  vertical-align: middle;
+  color: #d6d6d6;
+  font-size: 10px;
+}
+#menu_wrapper {
+  width: 450px;
+}
+
+#profile_wrapper{
+  font-size: 12px;
+  width: 60px;
+}
+
+.status_row{
+  display: table-row;
+}
+
+#navigation > div{
+  display: table-cell;
+  height: inherit;
+}
+
+.expander_row{
+    border-top: solid 1px rgba(0,0,0,0.2);
+    line-height: 11px;
+}
+#expander{
+
+  text-align: center;
+  color: #e4e4e4;
+  height: 8px;
+}
+#expander i{
+  vertical-align: top;
+  line-height: 6px;
+  height: 6px;
+  cursor: pointer;
+}
+
+#processor_list{
+  color: rgba(255,255,255,0.5);
+  display: none;
+}
+
+p{
+font-family: 'Open Sans', sans-serif;
+}
+
+.title{
+  font-size: 60px;
+  font-weight: 600;
+}
+
+#navigation .nav_element {
+    font-size: 12px;
+    display: table-cell;
+    vertical-align: middle;
+    height:inherit;
+    color: #e0e0e0;
+    padding: 0 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+#navigation .nav_element i {
+  padding: 0px 3px;
+}
+
+
+#navigation div i:hover, #navigation div span:hover,#navigation div div:hover  {
+    color: white;
+    -webkit-transition: color 100ms linear;
+    -moz-transition: color 100ms linear;
+    -o-transition: color 100ms linear;
+    -ms-transition: color 100ms linear;
+    transition: color 100ms linear;
+}
+/*==================================================
+ * Effect 6
+ * ===============================================*/
+.effect6
+{
+  	position:relative;
+        box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect6:before, .effect6:after
+{
+	content:"";
+    position:absolute;
+    z-index:-1;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:50%;
+    bottom:0;
+    left:10px;
+    right:10px;
+    border-radius:100px / 10px;
+}
+
+#functionCode{
+  height: 300px;
+}
+
+#tables .button{
+  height: 18px;
+  line-height: 18px;
+  padding:0 5px;
+  font-size: 9px;
+}
+
+.button.chunk{
+  height: 18px;
+  line-height: 18px;
+  padding:0 5px;
+}
+#processor_list ul{
+  padding: 0 0;
+  margin: 2px 0;
+}
+
+#processor_list ul li{
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: block;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  padding: 0 5px;
+  margin: 1px;
+  color: rgba(255,255,255,0.6);
+}
+
+#processor_list ul li:hover{
+  background-color: rgba(255,255,255,0.5);
+  -webkit-transition: background-color 100ms linear;
+  -moz-transition: background-color 100ms linear;
+  -o-transition: background-color 100ms linear;
+  -ms-transition: background-color100ms linear;
+  transition: background-color 100ms linear;
+}
+
+.cell{
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  line-height: 6px;
+  font-size: 0px;
+  border-top: 1px solid rgba(0,0,0,0.3);
+  border-left: 1px solid rgba(0,0,0,0.3);
+}
+
+#processor_list .tableName{
+  float: left;
+  display: inline-block;
+}
+
+#processor_list li div.fa{
+  height: inherit;
+  display: inline-block;
+}
+
+.popup{
+  position: fixed;
+  width: 500px;
+  height: 200px;
+  top: 50%;
+  left: calc(50% - 250px);
+  margin-top: -100px; // Negative half of height.
+  margin-left: -250px; // Negative half of width.
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  background-color: #fff;
+}
+
+.popup .close{
+  cursor: pointer;
+  padding: 5px;
+  float:right;
+}
+
+.popup .close:hover{
+  color: #822;
+}
+
+#profile_page .row{
+  margin: 5px 0;
+}
+
+.userStats{
+  font-size: 30px;
+}
+
+.userStats i{
+  font-size: 50px;
+}
