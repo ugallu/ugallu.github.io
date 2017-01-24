@@ -48,7 +48,7 @@ function initTextures(gl) {
   texture = gl.createTexture();
   image = new Image();
   image.onload = function() { handleTextureLoaded(image, texture); }
-  image.src = "/brain-at_4096.jpg";
+  image.src = "./brain-at_4096.jpg";
   return texture;
 }
 
