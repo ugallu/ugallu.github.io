@@ -1,0 +1,227 @@
+<!doctype html>
+<!--
+Copyright 2016 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> <!-- No pinch zoom on mobile -->
+    <meta name="mobile-web-app-capable" content="yes"> <!-- Launch fullscreen when added to home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Fullscreen Landscape on iOS -->
+
+    <title>WebVR example</title>
+
+    <!--
+      This sample demonstrates how to use the pose information from a VRDisplay
+      to control the view of a WebGL scene. Nothing is presented to the
+      VRDisplay.
+    -->
+
+    <style>
+      #webgl-canvas {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        margin: 0;
+      }
+    </style>
+
+    <!-- This entire block in only to facilitate dynamically enabling and
+    disabling the WebVR polyfill, and is not necessary for most WebVR apps.
+    If you want to use the polyfill in your app, just include the js file and
+    everything will work the way you want it to by default. -->
+	<script>
+	// from http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+	function getParameterByName(name, url) {
+		if (!url) url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+					results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+	</script>
+
+  <script src="/vectormath.min.js"></script>
+  <!--  after! vectormath -->
+  <script>
+    Vector2 = vectormath.Vector2;
+    Vector3 = vectormath.Vector3;
+    Vector4 = vectormath.Vector4;
+    Matrix4 = vectormath.Matrix4;
+    makeViewMatrix = function(eye, ahead, up)
+    {
+        var zaxis = ahead;
+        zaxis.normalize();
+        var xaxis = up.cross(zaxis);
+        xaxis.normalize();
+        var yaxis = zaxis.cross(xaxis);
+
+      return new Matrix4(
+       xaxis.x         ,  yaxis.x         ,  zaxis.x          , 0,
+       xaxis.y         ,  yaxis.y         ,  zaxis.y          , 0,
+       xaxis.z         ,  yaxis.z         ,  zaxis.z          , 0,
+      -xaxis.dot(eye)  , -yaxis.dot(eye)  , -zaxis.dot(eye)   , 1);
+    };
+    makePerspectiveMatrix = function(fovy, aspect, zn, zf)
+     {
+         var yScale = 1.0 / Math.tan(fovy * 0.5);
+         var xScale = yScale / aspect;
+       return new Matrix4(
+         xScale ,    0.0    ,      0.0            ,   0.0,
+         0.0      ,  yScale ,      0.0            ,   0.0,
+         0.0      ,    0.0    ,   zf/(zf-zn)      ,   1,
+         0.0      ,    0.0    ,   -zn*zf/(zf-zn)  ,   0);
+     };
+
+  </script>
+  <script src="/vShader.js"></script>
+  <script src="/fShader.js"></script>
+  <script src="/Quad.js"></script>
+
+    <script>
+      // Prevents the polyfill from initializing automatically.
+      var WebVRConfig = { DEFER_INITIALIZATION: true }
+    </script>
+    <script src="/js/third-party/webvr-polyfill.js"></script>
+    <script>
+      // Dynamically turn the polyfill on if requested by the query args.
+      if (getParameterByName('polyfill')) { InitializeWebVRPolyfill(); }
+    </script>
+    <!-- End sample polyfill enabling logic -->
+
+    <script src="/js/third-party/gl-matrix-min.js"></script>
+    <script src="/js/vr-samples-util.js"></script>
+  </head>
+  <body>
+    <canvas id="webgl-canvas"></canvas>
+    <div id="output"></div>
+    <script>
+      /* global mat4, VRCubeSea, VRSamplesUtil, WGLUStats, WGLUTextureLoader */
+      (function () {
+      "use strict";
+
+      var vrDisplay = null;
+      var projectionMat = mat4.create();
+      var viewMat = mat4.create();
+
+      // ===================================================
+      // WebGL scene setup. This code is not WebVR specific.
+      // ===================================================
+
+      // WebGL setup.
+      var webglCanvas = document.getElementById("webgl-canvas");
+      var glAttribs = {
+        // An alpha channel on the backbuffer is not necessary for many WebVR
+        // scenes. Disable it when unneeded to save memory/performance on some
+        // systems.
+        alpha: false,
+        // Disable antialiasing on mobile devices for performance reasons.
+        antialias: !VRSamplesUtil.isMobile()
+      };
+      var gl = webglCanvas.getContext("webgl", glAttribs);
+      gl.clearColor(0.1, 0.2, 0.3, 1.0); // Non-black makes debugging easier.
+    //  gl.enable(gl.DEPTH_TEST);
+    //  gl.enable(gl.CULL_FACE);
+
+      // Load a simple scene
+      var output = document.getElementById("output");
+      var vrScene = new Quad(gl);
+      function onResize () {
+        webglCanvas.width = webglCanvas.offsetWidth * window.devicePixelRatio;
+        webglCanvas.height = webglCanvas.offsetHeight * window.devicePixelRatio;
+
+        // The viewport and projection matrix will change frequently when we
+        // begin rendering in stereo, but for now they only need to be updated
+        // when the window is resized.
+        gl.viewport(0, 0, webglCanvas.width, webglCanvas.height);
+        mat4.perspective(projectionMat, Math.PI*0.4, webglCanvas.width/webglCanvas.height, 0.1, 1024.0);
+      }
+      window.addEventListener("resize", onResize, false);
+      onResize();
+
+      // ================================
+      // WebVR-specific code begins here.
+      // ================================
+
+      // Since it's a new API not all browsers will have WebVR support. As such
+      // it's a good idea to check that the API is available before attempting
+      // to call it.
+      if (navigator.getVRDisplays) {
+        navigator.getVRDisplays().then(function (displays) {
+          // Use the first display in the array if one is available. If multiple
+          // displays are present you may want to present the user with a way to
+          // select which display they wish to use.
+          if (displays.length > 0) {
+            vrDisplay = displays[0];
+
+            // Being able to re-center your view is a useful thing in VR. It's
+            // good practice to provide your users with a simple way to do so.
+            VRSamplesUtil.addButton("Reset Pose", "R", null, function () { vrDisplay.resetPose(); });
+          } else {
+            VRSamplesUtil.addInfo("WebVR supported, but no VRDisplays found.", 3000);
+          }
+        });
+      } else if (navigator.getVRDevices) {
+        VRSamplesUtil.addError("Your browser supports WebVR but not the latest version. See <a href='http://webvr.info'>webvr.info</a> for more info.");
+      } else {
+        VRSamplesUtil.addError("Your browser does not support WebVR. See <a href='http://webvr.info'>webvr.info</a> for assistance.");
+      }
+
+      // Main rendering loop
+      function onAnimationFrame () {
+
+        // The normal requestAnimationFrame is used here because the scene is
+        // being not being presented to the VRDisplay, and so should run at the
+        // refresh rate of the users monitor instead of the headset.
+        window.requestAnimationFrame(onAnimationFrame);
+      //  gl.clearColor(0.6, 0.0, 0.3, 1.0);
+      //  gl.clearDepth(1.0)
+      //  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+        if (vrDisplay) {
+          // If a VRDisplay was found, create a matrix based on its pose.
+          var pose = vrDisplay.getPose();
+
+          // The pose and orientation may be null if the VRDisplay cannot report
+          // them for some reason. In that case, use reasonable defaults:
+          var orientation = pose.orientation;
+          var position = pose.position;
+          if (!orientation) { orientation = [0, 0, 0, 1]; }
+          if (!position) { position = [0, 0, 0]; }
+
+          // Create a Model/View matrix from the orientation and position.
+          // From the glMatrix docs:
+          // Creates a matrix from a quaternion rotation and vector translation
+          // This is equivalent to (but much faster than):
+          //
+          //     mat4.identity(dest);
+          //     mat4.translate(dest, vec);
+          //     var quatMat = mat4.create();
+          //     quat4.toMat4(quat, quatMat);
+          //     mat4.multiply(dest, quatMat);
+          mat4.fromRotationTranslation(viewMat, orientation, position);
+
+          // Invert because we're describing the camera's position in space,
+          // so the objects in the scene need to move "in reverse" to get the
+          // appropriate effect.
+        //  mat4.invert(viewMat, viewMat);
+        } else {
+          // If no VRDisplay was found, create a matrix using a fallback method.
+          mat4.identity(viewMat);
+        }
+
+        // Render the scene using the matrix.
+        vrScene.draw(gl, viewMat);
+
+      }
+      window.requestAnimationFrame(onAnimationFrame);
+      })();
+    </script>
+  </body>
+</html>
