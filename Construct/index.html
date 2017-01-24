@@ -47,7 +47,7 @@ found in the LICENSE file.
 	}
 	</script>
 
-  <script src="/vectormath.min.js"></script>
+  <script src="./vectormath.min.js"></script>
   <!--  after! vectormath -->
   <script>
     Vector2 = vectormath.Vector2;
@@ -88,15 +88,15 @@ found in the LICENSE file.
       // Prevents the polyfill from initializing automatically.
       var WebVRConfig = { DEFER_INITIALIZATION: true }
     </script>
-    <script src="/js/third-party/webvr-polyfill.js"></script>
+    <script src="./js/third-party/webvr-polyfill.js"></script>
     <script>
       // Dynamically turn the polyfill on if requested by the query args.
       if (getParameterByName('polyfill')) { InitializeWebVRPolyfill(); }
     </script>
     <!-- End sample polyfill enabling logic -->
 
-    <script src="/js/third-party/gl-matrix-min.js"></script>
-    <script src="/js/vr-samples-util.js"></script>
+    <script src="./js/third-party/gl-matrix-min.js"></script>
+    <script src="./js/vr-samples-util.js"></script>
   </head>
   <body>
     <canvas id="webgl-canvas"></canvas>
