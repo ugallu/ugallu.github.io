@@ -1,0 +1,25 @@
+#lokális árnyalás
+megvilágítás+normál+anyagjell
+w/m^2
+brdf Mteljsuru * cos beesesi * dot (n,e) * konstans
+
+procedurális text.
+sin,cos->rácsok
+perlin zaj, textúrához pptben
+zajfv hívása lokoális árnyalásnál
+tükröző obj középen és mintás körülötte
+
+raymarching: pixel shader változtatás
+implicit görb.
+távolságfvek kiértékelése - sphere tracing
+felületi  pont ->normál - fvből gradiensekkel vagy kozelitem
+julia:
+
+10. gl -> app.gl
+
+FS
+
+uniform sampler2D volume,
+varying vec2 tex;
+
+gl_FragColor = texture2D(volume, text)

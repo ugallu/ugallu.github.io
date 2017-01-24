@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>UFO WebGL Ray tracer</title>
+    </head>
+
+    <body onload="start()">
+      <div>
+        <canvas id="container"></canvas>
+      </div>
+
+      <div id="output"></div>
+</body>
+
+<script src="vectormath.min.js"></script>
+<!--  after! vectormath -->
+<script>
+  Vector2 = vectormath.Vector2;
+  Vector3 = vectormath.Vector3;
+  Vector4 = vectormath.Vector4;
+  Matrix4 = vectormath.Matrix4;
+
+  makeViewMatrix = function(eye, ahead, up)
+   {
+       var zaxis = ahead;
+       zaxis.normalize();
+       var xaxis = up.cross(zaxis);
+       xaxis.normalize();
+       var yaxis = zaxis.cross(xaxis);
+
+     var m = new Matrix4(
+      xaxis.x         ,  yaxis.x         ,  zaxis.x          , eye.x,
+      xaxis.y         ,  yaxis.y         ,  zaxis.y          , eye.y,
+      xaxis.z         ,  yaxis.z         ,  zaxis.z          , eye.z,
+     0  , 0  , 0   , 1);
+     m.invert();
+     return m;
+   };
+
+  makePerspectiveMatrix = function(fovy, aspect, zn, zf)
+   {
+       var yScale = 1.0 / Math.tan(fovy * 0.5);
+       var xScale = yScale / aspect;
+     return new Matrix4(
+       xScale ,    0.0    ,      0.0            ,   0.0,
+       0.0      ,  yScale ,      0.0            ,   0.0,
+       0.0      ,    0.0    ,   zf/(zf-zn)      ,   1,
+       0.0      ,    0.0    ,   -zn*zf/(zf-zn)  ,   0);
+   };
+   
+</script>
+<script src="vsTrace.js"></script>
+<script src="vsQuad.js"></script>
+<script src="App.js"></script>
+<script src="Quad.js"></script>
+<script src="keycodes.js"></script>
+<script src="Camera.js"></script>
+</html>
