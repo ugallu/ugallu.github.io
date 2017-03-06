@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Title</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="9-hét">9. hét</h1>
+
+
+
+<h2 id="unitér-transzformáció-unitér-mátrix">Unitér transzformáció. Unitér mátrix.</h2>
+
+<p>Legyenek <script type="math/tex" id="MathJax-Element-1">V , \overline{V} </script> skalárszorzatos terek <br>
+és <script type="math/tex" id="MathJax-Element-2"> U: V \rightarrow \overline{V}</script> <br>
+lin trafó <br>
+Áll.: a következő két dolog ekvivalens: <br>
+U megtartja a normát - U nem változtatja  meg a vektorok normáját <br>
+azaz <br>
+1. <script type="math/tex" id="MathJax-Element-3">||Uv|| = ||v|| \forall v \in V</script> <br>
+megtartja a skalárszoztatot <br>
+2. <script type="math/tex" id="MathJax-Element-4"> <Uv,Uw> = <v,w> \forall v,w \in V</script> <br>
+Az állítás: ezek ekvivalens tulajdonságok. <br>
+pl.: Mondjunk euklideszi térben trafót ami nem változtatja meg a vektorhosszt: forgatás, skalárszorzás <br>
+Biz.: <br>
+1. Triviális: 2-&gt;1 mert, az <script type="math/tex" id="MathJax-Element-5">||Uv|| = \sqrt{<Uv,Uv>} = \sqrt{<v,v>} = ||v|| </script> <br>
+2. 1-&gt;2 vektorhosszt megtartja, akkor szögeket is? Hasonló mint az előző, csak most a skalárszoztatot fejezzük ki a norma segítségével. <br>
+<script type="math/tex" id="MathJax-Element-6">||v+w||^2 = ||v||^2 + ||w||^2 + 2 Re<v,w></script> <br>
+<script type="math/tex" id="MathJax-Element-7">||v-w||^2 = ||v||^2 + ||w||^2 - 2 Re<v,w></script></p>
+
+<p><script type="math/tex" id="MathJax-Element-8">||v+iw||^2= ||v||^2 + ||w||^2 + 2 Re<v,iw> = ||v||^2 + ||w||^2 - 2 Im<v,w></script></p>
+
+<p><script type="math/tex" id="MathJax-Element-9">||v-iw||^2 = ||v||^2 + ||w||^2 - 2 Re<v,iw> = ||v||^2 + ||w||^2 + 2 Im<v,w></script></p>
+
+<p><script type="math/tex" id="MathJax-Element-10">Re<v,w> = \frac{1}{4} (||v+w||^2 - ||v-w||^2)</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-11">Im<v,w> = \frac{1}{4} (||v-w||^2 - ||v+w||^2)</script> <br>
+megj.: ha trafó lin, és megtartja a hosszokat, akkor skalárszozatokat is <br>
+nincs olyan lintrafó ami csak a hosszokat tartja meg <br>
+Def.: Legyenek <script type="math/tex" id="MathJax-Element-12">V \overline{V} skalárszorzatos terek</script> <br>
+<script type="math/tex" id="MathJax-Element-13"> U:V\rightarrow \overline{V}</script> lin trafó <strong>unitér</strong>, ha</p>
+
+<ol>
+<li>bijekció</li>
+<li>hossztartó</li>
+</ol>
+
+<blockquote>
+  <p>Megjegyzések: Valós esetben unitér helyett ortogonális transzforációnak szokták hívni.</p>
+</blockquote>
+
+<ul>
+<li>ha <script type="math/tex" id="MathJax-Element-14">dim V = dim \overline{V} < \infty </script>, akkor 2 <script type="math/tex" id="MathJax-Element-15">\rightarrow </script> 1 <br>
+mit jelent hogy a magtere a nulla? azt jelenti hogy ha mátrixomat ráeresztem egy vektorra - veszem a lin kombóját a soroknak. Ha sorok függetlenek, akkor csak a 0-t viszi 0-ba.  <br>
+(Bijekció - injekció +szörjekció   1az1be. ha rang egyenlő, megkapjuk a teljes képteret)</li>
+</ul>
+
+
+
+<h3 id="a-fourier-trafó-mint-unitér-trafó">A Fourier trafó mint unitér trafó</h3>
+
+<p><script type="math/tex" id="MathJax-Element-16">V = l^2 ([-\pi,\pi] , C)</script> <br>
+<script type="math/tex" id="MathJax-Element-17">\overline{V} = L^2 (Z,C) </script><script type="math/tex" id="MathJax-Element-18">= [ a: Z \rightarrow C | \sum_{k \in Z} | a_k |^2 < \infty</script> <br>
+<script type="math/tex" id="MathJax-Element-19"> <a,b> = \sum_{k \in Z} \overline{a}_k b_k</script> (becslés, véges egyik akkor véges másik is mivel CauchySwartz) <br>
+Fourier trafó mit csinál? <br>
+<script type="math/tex" id="MathJax-Element-20">f \in L^2 \rightarrow f' \in l^2</script> <br>
+<script type="math/tex" id="MathJax-Element-21">f'_n = <e_n, f> lin trafó</script> <br>
+Parseval egyenlőtlenség = ez a trafó hossztartó <br>
+Belátható hogy bijekció ( most nem látjuk be) <br>
+Tehát ez egy unitér trafó.</p>
+
+<p>Egyik egy függvénytér a másik sorozatoknak a tere. A parseval egyenlőtlenségnél egy kicsit általánosabb dolog is igaz:  <br>
+Köv.: <script type="math/tex" id="MathJax-Element-22">f,g \in L^2 \rightarrow <f,g> = \sum_{n=- \infty}^{\infty} \overline{f'_n } g'_n </script></p>
+
+<p>Múlt órán úgy fejeztük be, hogy megbeszéltük a konvolúciót, de nem néztük végig, hogy a szummázást mikor cserélhetjük meg. <br>
+Előző óra végére: akkor igaz ha <script type="math/tex" id="MathJax-Element-23">\sum f_n</script> és <script type="math/tex" id="MathJax-Element-24">\sum g_n</script> véges, akkor igaz. Négyzet nélkül is fölösszegezhetőek.</p>
+
+<p>Ezzel most a fourier transzformáltat befejeztük. Általánosítani fogjuk. <br>
+Fourier: függvényből csinál sorozatot. <br>
+Jobb lenne: fv-&gt;fv vagy sorozat-&gt;sorozat. <br>
+Lehetne picit végesebben nézni a sorozatot. Eddig <script type="math/tex" id="MathJax-Element-25">[-\pi,\pi]</script> intervallumon néztük minden pontban.  <br>
+1. Lehetne NEM minden pontban. sorozatból sorozatba mennénk.  <br>
+2. Lehetne elhúzogatni a határokat. Sorozatunkban sűrűsödnének a pontok -&gt; függvénytérből fvtérbe.</p>
+
+<blockquote>
+  <p>Kitérő: Létezik-e a gyökkettő? :D A gép nem tudja ábrázolni - de a fogalommal dolgozunk, nem helyettesíthetjük közelítésekkel. Miért akarunk kimenni a teljes valós egyenesre. Bejönnek effektek, amik amiatt jönnek be, véges intervallumon dolgozunk. Átmegyünk a teljes valós egyenesre.</p>
+</blockquote>
+
+
+
+<h3 id="fourier-transzformált-a-teljes-valós-egyenesen-re-en">Fourier transzformált a teljes valós egyenesen (<script type="math/tex" id="MathJax-Element-2070">\Re</script>-en)</h3>
+
+<p>Átskálázzuk a fourier trafót. <br>
+Legyen <script type="math/tex" id="MathJax-Element-2071">f</script> folytonosan diffható, f tartója: Supp(f) <script type="math/tex" id="MathJax-Element-2072">\in [a,b]</script> azon x pontok halmaza, ahol a függvény nem 0, ez lezárva. (<script type="math/tex" id="MathJax-Element-2073">{x | f(x) \neq 0}</script>)</p>
+
+<p>Elefánt a kigyóban.</p>
+
+<p><script type="math/tex" id="MathJax-Element-2074">\rightarrow \exists \lambda \in \Re^+: Supp(f) \in (-\lambda\pi , + \lambda \pi)</script></p>
+
+<p>Ebből azt kapjuk, hogy <script type="math/tex" id="MathJax-Element-2075">\rightarrow \forall x [-\pi,\pi] : f( \lambda x) = \frac{1}{\sqrt{2\pi}} \sum_{n \in N} e^{i n x} \frac{1}{\sqrt{2 \pi}} \int_{-\pi}^{\pi} e^{-inz} f(\lambda z) dz</script></p>
+
+<p>//<script type="math/tex" id="MathJax-Element-2076"> g(x) = f(\lambda x), g(x) = \frac{1}{\sqrt{2 \pi } } \sum e^{i n x } g'_n </script></p>
+
+<p><script type="math/tex" id="MathJax-Element-2077">\rightarrow \forall x \in [-\lambda \pi, \lambda \pi]</script> <br>
+<script type="math/tex" id="MathJax-Element-2078"> f(x) = \frac{1}{2 \pi} \sum_{n \in Z} e^{i n \frac{x}{\lambda}} \int_{-\lambda \pi}^{ + \lambda \pi } e^{- i n \frac{z}{\lambda}} f(z) \frac{1}{\lambda} dz</script></p>
+
+<p>tartója véges- így tartója benne van az intervallumban - a többi megy úgy is 0 <br>
+vezessük be: <script type="math/tex" id="MathJax-Element-2079">F_{+-} f(f) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-+inx} f(x) dx</script></p>
+
+<p><script type="math/tex">\rightarrow f(x) = \frac{1}{\sqrt{2\pi}} \sum_{n \in Z } \frac{1}{\lambda} [e^{i(\frac{n}{x})x } F_+ f(\frac{n}{\lambda})]</script> ????FIXME <br>
+Ez nem csak egy \lambda értékére igaz, hanem bizonoyos küszöbtől kezdve mindegyikre.</p>
+
+<p>n egészek <br>
+\frac{1}{\lambda} - kis törtek 0 1 között <br>
+mintavételezek, veszem a fvértékét apránként, és szorzom egyperlambdával.  <br>
+<script type="math/tex">\rightarrow f(x) = \frac{1}{2\pi} \int e^{i k x} F_+ f(k) dk</script> <br>
+<script type="math/tex"> = F_-( F_+ f) (x)</script> <br>
+<script type="math/tex"> F_- F_+ f = f</script></p>
+
+<p>igaz marad, ha <script type="math/tex">f \in L^2(R, C)</script> és <script type="math/tex">\int_{-\infty}^{\infty}</script> inpropius értelemben nézzük (-atól a-ig, ahol a-val tartok végtelenbe. ) itt számit a sorrend</p>
+
+<p>tipik példa: sin(x)/x: improp. értelemben létezik, de ha külön a + és utána -at integrálom, nem jó</p>
+
+<p>Transzformáció tulajdonságai:</p>
+
+<p>Mi történik a skaláris szorzat tartással? <br>
+átskálázott f fourier együtthatóiit felösszegezve… <br>
+<script type="math/tex">\sum_{n\in Z} \overline{f'_{\lambda n}} g'_{\lambda n} = \int_{-\infty}^{\infty} \overline{f_{\lambda} } (x) g_{\lambda} (x) dx= </script> <br>
+jobboldalt: <br>
+<script type="math/tex"> \int_{-\pi}^{\pi} \overline{f(\lambda x)} g(\lambda x) dx = </script></p>
+
+<p><script type="math/tex"> \frac{1}{\lambda} \int_{-\infty}^{\infty} \overline{f} (x) g(x) dx</script> <br>
+(korlátot átírtuk) <br>
+<script type="math/tex"> g'_{\lambda n } = \frac{1}{\sqrt{2 \pi }} = \int_{-\pi}^{\pi} e^{-inx} g(\lambda x) dx</script> <br>
+<script type="math/tex"> \frac{1}{\lambda} ....</script> - pótlandó, lemaradtam</p>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-2108">\frac{1}{\lambda^2} \sum_{n \in Z}  \overline{F_+ f(\frac{1}{\lambda} )}F_+ g(\frac{n}{\lambda}) = \frac{1}{\lambda} \int_{-\infty}^{\infty} \overline{f(x)} g(x) dx = \frac{1}{\lambda} <f,g></script> - ez a sor és a környéke biztosan átnézésre szorul <br>
+<script type="math/tex; mode=display" id="MathJax-Element-2109">\rightarrow \int_{-\infty}^{\infty} \overline{F_+ f(k)} F_+ g(k) dk = <f,g></script> <br>
+tehát </p>
+
+<p><script type="math/tex" id="MathJax-Element-2110"><F_+ f, F_+ g ></script>, valójában <script type="math/tex" id="MathJax-Element-2111">F_+</script> unitér <script type="math/tex" id="MathJax-Element-2112"> V \rightarrow \overline{V}</script> <br>
+<script type="math/tex" id="MathJax-Element-2113">F_-</script> unitér mert <script type="math/tex" id="MathJax-Element-2114">F_+</script> is unitér</p>
+
+<p><script type="math/tex" id="MathJax-Element-2115"> (F_+ f) (z ) = (F_- f )(-z)</script> - a képlet szerint</p>
+
+<p><script type="math/tex" id="MathJax-Element-2116">(F_+ F_+ f)(x) = f(-x)</script> </p>
+
+<p>azaz <script type="math/tex" id="MathJax-Element-2117">F_+^4 f = f</script></p>
+
+<p>milyen sajátértékei lehetnek ennek a trafónak? <br>
+<script type="math/tex">F_+ f = \lambda f</script></p>
+
+<p>1,-1, i, -i a sajátértékek</p>
+
+<p>Deriválás szempontjából: <br>
+<script type="math/tex">F_+ f'(k) = \lim_{h \rightarrow 0} \frac{F_+ f(k+h) - F_+ f(k)}{h}</script> <br>
+bevihető? igaz. mert tartója véges <br>
+<script type="math/tex">F_+ f (k+h) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-i (k+h) x} f(x) dx</script> az e-s tag pedig: <script type="math/tex">e^{-ikx}e^{-ihx}</script></p>
+
+<p>jó lenne e-ihxes tagot eltüntetni, visszavezetni sima trafóra</p>
+
+<p><script type="math/tex"> F_+ (M_h f) ()</script></p>
+
+<p>ahol <script type="math/tex"> M_h f(x) = e^{-ihx} f(xi)</script></p>
+
+<p>egyenlő a limese tag: <script type="math/tex">lim_{h \rightarrow 0 } \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-ikx} f(x)\frac{(e^{-ihx}-1)}{h} dx</script> - be lehet vinni a limest?</p></div></body>
+</html>

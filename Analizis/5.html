@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analízis</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h2 id="5-előadás">5. Előadás</h2>
+
+<p>Cauchy Schwartz egyenlőtlenség következménye: <br>
+Van egy V skalárszorzatos tér - van egy távolságfogalmunk. <br>
+<script type="math/tex" id="MathJax-Element-1341"> d(x,y) = || x-y || </script></p>
+
+<p>Konvergenciáról és folytonosságról is tudunk beszélni. <br>
+Lemma: <script type="math/tex" id="MathJax-Element-1342"> x \rightarrow f(x):=<v,x> </script> folytonos  <br>
+Bizonyítás:  Legyen <script type="math/tex" id="MathJax-Element-1343"> \epsilon > 0, \phi_\epsilon = ?</script> <br>
+Nézzük a függvényértékek közötti eltérést:  <br>
+<script type="math/tex" id="MathJax-Element-1344"> | f(x) - f(y) | = | <v,x> - <v,y>| = |<v,x-y>| \leq ||v|| \cdot || x-y || \rightarrow \delta_\epsilon =  \frac{\epsilon}{||v||} </script> <br>
+FIXME!</p>
+
+<p>hasonlóképpen: <script type="math/tex" id="MathJax-Element-1345"> x \mapsto x + v </script> és <script type="math/tex" id="MathJax-Element-1346"> x \mapsto \lambda x</script> - folytonos</p>
+
+<p>Következmény: Tegyük fel hogy <script type="math/tex" id="MathJax-Element-1347"> v_n \in V (n \in N) </script> és <script type="math/tex" id="MathJax-Element-1348"> \exists \lim\limits_n V_n = v \in V</script> azaz <script type="math/tex" id="MathJax-Element-1349"> ||v-v_n|| </script> tart 0-hoz ha n tart végtelenbe. <br>
+Ekkor <script type="math/tex" id="MathJax-Element-1350"> \forall w \in V </script> konvergál ???? <br>
+<script type="math/tex" id="MathJax-Element-1351"> <w,v> = <w, \lim\limits_n v_n> = </script> mikor egyenlő a határérték az értékkel? ha folytonos <br>
+<script type="math/tex" id="MathJax-Element-1352"> = \lim\limits_n <w,v_n> </script></p>
+
+<p>Aprópénzre váltva <br>
+!Vigyázat! <script type="math/tex" id="MathJax-Element-1353"> V = L^2(\Re, C)</script> <br>
+<script type="math/tex" id="MathJax-Element-1354"> f_n(x) = e^{-(x-n)^2} \rightarrow f_n \in L^2(\Re, C) </script> <br>
+Legyen <script type="math/tex" id="MathJax-Element-1355">g(x) = 0</script> <br>
+<script type="math/tex" id="MathJax-Element-1356"> \forall x</script> -re <script type="math/tex" id="MathJax-Element-1357"> \lim\limits_n f_n(x) = g(x)</script> <br>
+De <script type="math/tex" id="MathJax-Element-1358"> \lim\limits_n f_n \neq g</script> mert <script type="math/tex" id="MathJax-Element-1359"> || f_n - g_n || = konstans </script> ! tá ! más távolságfogalom!</p>
+
+<p>utoljára: megkeressük a legjobb másodfokú polinomot, melyre az <script type="math/tex" id="MathJax-Element-1360"> || f- p ||^2 = \sqrt{\int_0^1 |f(x) - p(x)|^2 dx} </script> távolásg legkisebb: <br>
+<script type="math/tex" id="MathJax-Element-1361"> f(x) = \frac{1}{1+x^2} </script> <br>
+Miért nem így csináltuk?: <script type="math/tex" id="MathJax-Element-1362"> p(x) = ax^2+bx+c </script> <br>
+|| f - p ||: … : kifejt, integrál, lesz valami F(a,b,c), optimalizáljuk külön a,b,c-ben.</p>
+
+<p>kijön így is, miért csináljuk akkor másképp? az ortvrelítés? ???? WTF <br>
+Amit mi csináltunk, ott az ortobázis feállítása függvetlen volt F-től, ez fix. Így két részre bonthattuk a feladatot:</p>
+
+<ol>
+<li>megfelelő polinom rendszer felírása (független f-től)</li>
+<li>vetítés elvégzése <br>
+ortogonális fvrendszer előállítása / minteltja ???? / ortogonális marad <br>
+elég mindent mondjuk a [-1,1] intervallumon végiggondolni</li>
+</ol>
+
+<p>Vegyük a <script type="math/tex" id="MathJax-Element-1363"> x \mapsto 1, x, x^2, x^3 \in L^2([-1,1], C)</script> <br>
+elemeket, és hajtsuk végre a G–sek ortogonalizációk. <br>
+Legendre-polinomokat kapnak.</p>
+
+<p>pl.: <script type="math/tex" id="MathJax-Element-1364"> Df(x) = \frac{d}{dx}((1-x^2)\frac{d}{dx}f(x)) = \lambda f(x)</script> ahol <script type="math/tex" id="MathJax-Element-1365">\lambda</script> konstans <br>
+kell: [-1,1] intervallumon nem elszálló megoldások <br>
+<script type="math/tex" id="MathJax-Element-1366"> q_n(x) = (\frac{d}{dx})^n(x^2-1)^n</script> <br>
+Állítás: (itt f helyére <script type="math/tex" id="MathJax-Element-1367">q_n</script>-t kell írni) <script type="math/tex" id="MathJax-Element-1368">Dq_n(x) =-n(n+1)q_n(x) = ... </script></p>
+
+<p>Állítás: <script type="math/tex" id="MathJax-Element-1369">q_n</script>-ek ortogonálisak [-1,1]-ben <br>
+Max. ???? : <script type="math/tex" id="MathJax-Element-1370"> A \in lin(V)</script> azaz legyen <script type="math/tex" id="MathJax-Element-1371">A : v \rightarrow ''/  </script> be ???? lineáris leképzés (ami egy mátrix szorzás a gyakorlatban) <br>
+ha <script type="math/tex" id="MathJax-Element-1372"> V = R^n</script> vagy <script type="math/tex" id="MathJax-Element-1373"> C^n</script> akkor <script type="math/tex" id="MathJax-Element-1374"> n \times n</script> - gyakran A(v) helyett Av (lásd mátrix szorzás)</p>
+
+<blockquote>
+  <p>Megjegyzés: Deriválás is lineáris transzformáció <br>
+  <script type="math/tex" id="MathJax-Element-1375"> f \rightarrow Df </script>lin. leképzés $</p>
+</blockquote>
+
+<p>Def.: <script type="math/tex" id="MathJax-Element-1376">A</script> önadjungált, ha <script type="math/tex" id="MathJax-Element-1377"> \forall v </script> és <script type="math/tex" id="MathJax-Element-1378"> w </script>-re a <script type="math/tex" id="MathJax-Element-1379"> <v,Aw> = <Av, w></script> // megj.: mátrixok esetén( <script type="math/tex" id="MathJax-Element-1380"> R^n</script>-ben vagyunk) és a skalárszorzat a szokásos standard skalárszorzaat - azaz <script type="math/tex" id="MathJax-Element-1381"><x,y> = \sum x_iy_i</script> akkor <br>
+<script type="math/tex" id="MathJax-Element-1382">'A' </script>önadjungált <script type="math/tex" id="MathJax-Element-1383">\Leftrightarrow \forall x,y</script> -ra <script type="math/tex" id="MathJax-Element-1384"> \sum x_n(Ay)_n = \sum (Ax)_n y_n = \sum A_{kj} y_k = \sum A_{uj}x_j</script> - cseréljük fel k-t j-re. (???? mi a k és a j?) <br>
+some magic mátrixszorzás: k. sor</p>
+
+<p><script type="math/tex" id="MathJax-Element-1385"> \Leftrightarrow \sum_{k \neq j =1}^n x_n y_j A_{kj} = \sum_{k \neq j = 1}^n x_k y_j A_{jk}</script> - <script type="math/tex" id="MathJax-Element-1386">R^n</script> esetén a mátrix szimmetrikus, <br>
+ha <script type="math/tex" id="MathJax-Element-1387">C^n</script> akkor a konjugáltak megjelentek, ez esetben A transzponáltja = A konjugáltja.</p>
+
+<p>Állítás: <script type="math/tex" id="MathJax-Element-1388"> V = {f | [-1,1] D(f), D(f'), D(f'')...}</script> - akárhányszor differenciálható (ellenpélda: gyökös nem, <script type="math/tex" id="MathJax-Element-1389">\sqrt{e}</script> elszáll)  <br>
+a szokásos skalárszorzással: <script type="math/tex" id="MathJax-Element-1390"><f,g>:\int_{-\Pi}^{\Pi} \over{f}g</script> <br>
+Áll.: <script type="math/tex" id="MathJax-Element-1391"> D: V \rightarrow V</script> önadjungált  <br>
+Biz.: <script type="math/tex" id="MathJax-Element-1392"> <f, Dg> = <Df, g> = \int_{-1}^{1} \over{f}(x) \frac{d}{dx} (1-x^2) \frac{d}{dx} g(x) dx </script> (parciális) <br>
+<script type="math/tex" id="MathJax-Element-1393"> = [\overline{f(x)}(1-x^2) \frac{d}{dx} g(x)]_{-1}^1 = \int_{-1}^1 (\overline{\frac{d}{dx} f(x)} (1-x^2) \frac{d}{dx} g(x))dx =</script> <br>
+<script type="math/tex" id="MathJax-Element-1394"> = -\int_{-1}^1 \over{\frac{d}{dx} f(x)} (1-x^2) \frac{d}{dx} g(x) dx = </script> (parciális  d/dx gx dx szerint) <br>
+<script type="math/tex" id="MathJax-Element-1395"> = - [\overline{\frac{d}{dx} f(x) } (1-x^2) g(x) ]_{_1}^1 + \int_{-1}^1 \over{ \frac{d}{dx}((1-x^2) \frac{d}{dx} f(x))  } g(x) dx</script> (amiből az első tag 0, a második meg maga a Df(x)) <br>
+<script type="math/tex" id="MathJax-Element-1396"> = \int_{_1}^1 (\over{Df}) g = <Df ,g></script></p>
+
+<p>Def.: Legyen <script type="math/tex" id="MathJax-Element-1397">A \in lin(V) </script> egy <script type="math/tex" id="MathJax-Element-1398">v \in V , v \neq 0</script> melyre <script type="math/tex" id="MathJax-Element-1399"> Av = \lambda v </script> valamely  <script type="math/tex" id="MathJax-Element-1400">\lambda</script> skalárra, A egy saját?????? (v egy sajátvektora A-nak), <br>
+<script type="math/tex" id="MathJax-Element-1401">\lambda</script> pedig A-nak egy sajátértéke.</p>
+
+<p>Feladat: Mit csinál a ‘csupa 1’ mátrix egy 2D-s ponttal? <br>
+<script type="math/tex" id="MathJax-Element-1402"> \begin{bmatrix}   1 & 1 \\     1 & 1 \\     \end{bmatrix} </script>  <script type="math/tex" id="MathJax-Element-1403"> \begin{bmatrix} x \\ y  \end{bmatrix} </script> = <script type="math/tex" id="MathJax-Element-1404"> \begin{bmatrix} x+y \\ x+y  \end{bmatrix} </script> <br>
+Mit jelent ez transzformációk szerint? Vetít és nyújt y=x-re. Legnagyobb sajátvektorból és sajátértékéből látható (FIXME!)</p>
+
+<p>Állítás: 1. Egy önadjungált op. sajátértékei mindig valósak <br>
+2. különböző sajátértékekhez tartozó sajátvektorok ortogonálisak egymásra</p>
+
+<p>Biz.: Tegyük fel hogy <script type="math/tex" id="MathJax-Element-1405">v \neq 0 , \lambda \in C, Av = \lambda v</script> <br>
+Ebből következik, hogy: <script type="math/tex" id="MathJax-Element-1406">\lambda <v,v> = <v, \lambda v> = <v, Av> = <Av,v> = <\lambda v, v> = \over{\lambda} <v,v></script> <br>
+valamint: <script type="math/tex" id="MathJax-Element-1407"> (\lambda - \over{\lambda}) <v,v> = 0 \rightarrow \lambda \in \Re</script> <br>
+Tegyük fel hogy <script type="math/tex" id="MathJax-Element-1408">v,q \neq 0   \lambda,\mu \in \Re, \lambda + \mu </script>(WTF?) <script type="math/tex" id="MathJax-Element-1409">Av = \lambda v</script> és <script type="math/tex" id="MathJax-Element-1410">Aw = \mu w</script> (két sajátvektor és sajátérték) <br>
+Ebből következik, hogy: <script type="math/tex" id="MathJax-Element-1411">\lambda<w,v> = <w, Av> =_{önadjungált} <Aw, v> = <\mu w, v> = \mu <w, v> </script> <br>
+Következmény: <script type="math/tex" id="MathJax-Element-1412"> (\lambda - \mu ) <v,w> = 0 \rightarrow <v,w> = 0 </script> (ortogonális vektorok és <script type="math/tex" id="MathJax-Element-1413">\lambda \neq \mu</script>)</p>
+
+<p><strong>Következmény: A <script type="math/tex" id="MathJax-Element-1414">q_n</script> poninomok ortogonálisak.</strong></p>
+
+<p>1 perióduson belül ??adrendben közelíteni szinuszt? <br>
+* előny: nem kell ortopolinomokat felírni <script type="math/tex" id="MathJax-Element-1415">\rightarrow</script> Lagendre polinomok</p></div></body>
+</html>
