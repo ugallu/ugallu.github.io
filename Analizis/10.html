@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><p>… itt hiányzik 15 percnyi gépelés…</p>
+
+<p>Ált. mikor igaz ez? <script type="math/tex" id="MathJax-Element-542"> x \rightarrow |f(x)| </script> és <script type="math/tex" id="MathJax-Element-543"> |x f(x) | \in L^2</script> <br>
+akkor minden rendben marad, tehát ilyenkor <script type="math/tex" id="MathJax-Element-544">F_+ f</script> (fourier transzformált) mindenhol deriválható és  <br>
+<script type="math/tex; mode=display" id="MathJax-Element-545"> F_+f' F_+(x \rightarrow -ixf(x)) </script></p>
+
+<blockquote>
+  <p>Megj.: (négyzetesen integrálhatóság egy gyengébb feltétel)</p>
+</blockquote>
+
+<p><script type="math/tex; mode=display" id="MathJax-Element-505"> L^1 \leftrightarrow Ľ^2</script></p>
+
+<blockquote>
+  <p>abból indultunk ki h ha odatrafózok és visszatrafózok akkor visszakapom az eredeti függvényt. de ez csak <script type="math/tex" id="MathJax-Element-506">L^2 </script> módon igaz. ha minden pontban azt akarom hogy teljesüljön, akkor tényleg kell az hogy a függvény abs. értékben integrálható</p>
+</blockquote>
+
+<p>Függvénynek fourier trafója:</p>
+
+<p><script type="math/tex" id="MathJax-Element-507">f(x) = \frac{1}{\sqrt{\pi} }e^{-x^2}</script> - Gauss normális eloszlás <br>
+ahol a tört egy normálási tényező <br>
+“Normális eloszlás” = binomiálisnak határesetben</p>
+
+<blockquote>
+  <p>Tegyük fel hogy egy pénzdarabot dobálgatunk fel, hányszor lesz fej/írás. Feldobjuk 100-szor. Ábrázolni akarom azt, hogy hányszor lesz fej. Legnagyobb valszíne az 50 fejnek lesz, aztán csökkenni fog. U.e. 1000-pénzfeldobással - arrébbmászik a közepe 500hoz, de az összterület 1. Széthúztam a görbét. 500,499, hasonló valszínek. Máshogy kellene ábrázolni. Jobb ábrázolás: toljuk el a középpontot az origóba. Vízszintes tengelyt is skálázni kell - szórással. Egy egység pont egy szórásnyi legyen. Határesetben (vagy akár már véges sok esetben) kijön a fent említett normális eloszlás. Vigyázat: nem kell azonos valszínnel dobnunk. <br> <br>
+  Binom: n - esetszám, q - igen válasz valószínűsége. Várható érték (hány fej lesz): <script type="math/tex" id="MathJax-Element-508">n*q</script>  <br>
+  szórás<script type="math/tex" id="MathJax-Element-509">=\sqrt{nq(1-q)}</script> <br>
+  Mi a valószínűsége annak hogy 1000 feldobásból 600-nál is több fej lehet? <br>
+  Összegezgetni az 1000 alatt a 600 szor 1/2^600 szor 400^400 -&gt; számolási hibák, sok összeg, borzalom. <br>
+  E helyett nézzük a normál eloszlás fv-ét és integráljuk ki. Hogy van skálázva? Ami a 0 az az 500. Hol van a 600? A szórás <script type="math/tex" id="MathJax-Element-510">\sqrt{250}</script> … 15.vmennyi <br>
+  az eltérés az 600-500=100, ezt le kell osztani <script type="math/tex" id="MathJax-Element-511">\sqrt{250}</script>-nel. </p>
+</blockquote>
+
+<p>Fouriere a normálnak: <br>
+elvileg: <script type="math/tex" id="MathJax-Element-512">F_+ f(k) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-ikx} \frac{1}{\pi} e^{-x^2} dx</script> = nem tudom hogy mennyi.</p>
+
+<p>pl.: <script type="math/tex" id="MathJax-Element-513">\int_{-\infty}^{\infty} e^{-x^2} dx</script> függvényérétket tudunk mondani, de primitívet nem.</p>
+
+<p>Ha lederiválom amit kapok: <br>
+<script type="math/tex" id="MathJax-Element-514"> (F_+ f)'(k) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} e^{-ikx} (-ix) \frac{1}{\sqrt{2 \pi}} e^{-x^2} dx </script> - a második tag majdnem az, mintha f’x helyett fx-et írtam volna oda. -ix van -2 helyett. -&gt; <script type="math/tex" id="MathJax-Element-515">\frac{i}{2} f'(x)</script></p>
+
+<blockquote>
+  <p>Korábban kiszámoltuk, hogy <script type="math/tex" id="MathJax-Element-516">(F_+f)' = F_+(x \rightarrow -ix f(x))</script> <br>
+  <script type="math/tex" id="MathJax-Element-517"> F_-((F_+f)’) = x \rightarrow -ixf(x)  
+  </script> F_+(F_+f)' = x \rightarrow ixf(-x)<script type="math/tex" id="MathJax-Element-518">  
+  </script> F_+(g') = x \rightarrow ix(F_-g)(-x)<script type="math/tex" id="MathJax-Element-519">  
+  </script> F_-(g') = x \rightarrow ix(F_+g(x))$</p>
+</blockquote>
+
+<p><script type="math/tex" id="MathJax-Element-520"> = \frac{i}{2} F_+ (f)'(k) = \frac{i}{2} (i k (F_+ f)(k)) = </script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-521"> (F_+f)'(k) = - \frac{k}{2} (F_+f)(k)  </script> <br>
+ez egy elsőfokú közönséges diffegyenlet</p>
+
+<p>PickardLind tétel: 1 kezdeti feltétel után ennek a megodlása egyértelmű.</p>
+
+<p>Tudjuk egy pontban a fv értékét? </p>
+
+<p><script type="math/tex" id="MathJax-Element-522"> (F_+f)(0) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} 1 \frac{1}{\sqrt{\pi}} e^{-x^2} dx = \frac{1}{\sqrt{2\pi}}</script></p>
+
+<p>a megoldás vhogy így néz ki: <script type="math/tex" id="MathJax-Element-523"> k \rightarrow b e^{-ak^2}</script> ahol a = 0.25 és a b=<script type="math/tex" id="MathJax-Element-524">\frac{1}{\sqrt{2 \pi}}</script> <br>
+<script type="math/tex" id="MathJax-Element-525">\rightarrow F_+f(k) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{k^2}{4}}</script> <br>
+nem úgy számoltuk ki hogy kiszámoltuk a  <br>
+<em>fourier tf deriváltja = -ix megszorzása, ami majdnem ugyanaz mintha a diff helyett az eredetit í¶tam volna fel -&gt; diff egyenlet</em></p>
+
+<blockquote>
+  <p>Megj.: <script type="math/tex" id="MathJax-Element-526">F_+(x \rightarrow e^{-\frac{x^2}{2}}) = e^{-\frac{x^2}{2}}) = f(x)</script> <br>
+  átskálázás: sajátvektora a ft-nek, 1-es sajátértékkel. <br>
+  mondjunk fv-t aminek Ft-je -1,i,-i-szer önmaga. <br>
+  jelenleg ezt állítottuk: <script type="math/tex" id="MathJax-Element-527">F_+ f = f</script> <br>
+  <script type="math/tex" id="MathJax-Element-528"> F_+(x \rightarrow ixf(x)) = (F_+ f )' = f' = x \rightarrow -x f(x)</script> <br>
+  legyen <script type="math/tex" id="MathJax-Element-529"> ixf(x) = g(x) </script> akkor <script type="math/tex" id="MathJax-Element-530"> F_+ g = ig</script> </p>
+</blockquote>
+
+<p>így kapjuk az un. Hermite polinomokat (ez egy ortogonális polinomrendszer, a Gram-Smidth ortogonalizációval kapjuk meg.) <br>
+Új skalárszorzat: <script type="math/tex" id="MathJax-Element-531"><p_1,p_2> = \int_{-\infty}^{\infty} e^{{-x^2}} \overline{p_1(x)} p_2(x) dx</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-532"> x \rightarrow 1,x,x^2...</script> <br>
+Gram-Schmidt -&gt; Hermite polinomok</p>
+
+<p>P(x) - egy hermite polinom, <br>
+<script type="math/tex" id="MathJax-Element-533">P(x)e^{-x\frac{x^2}{2}}</script> egy sajátfve a Fourier-nek.</p>
+
+<h3 id="fourier-transzformáció-és-konvolúció">Fourier transzformáció és konvolúció</h3>
+
+<p>Konvolúció: <script type="math/tex" id="MathJax-Element-41"> (f * g)(x) = \int_{-\infty}^{\infty} f(z) g(x-z) dz </script> <br>
+<script type="math/tex" id="MathJax-Element-42">F_+ (f*g)(k) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} e^{-ikx} \int_{-\infty}^{\infty} f(z) g(x-z) dz</script> <br>
+<script type="math/tex" id="MathJax-Element-43"> = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{-ik(x-z)} g(x-z) - e^{-ikz} f(z) dz dx</script> <br>
+<script type="math/tex" id="MathJax-Element-44">\frac{1}{\sqrt{2\pi}}  \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} e^{-iky} g(y) e^{-ikx} f(x) dy dx </script> - ez pont fourier trafója f-nek k helyen, illetve g-nek trafója</p>
+
+<p><script type="math/tex" id="MathJax-Element-45"> = \sqrt{2\pi}(F_+ f) (k) (F_+g)(k) </script> igaz ha <script type="math/tex" id="MathJax-Element-46">|f| </script> és <script type="math/tex" id="MathJax-Element-47">|g|</script> integrálható (majorálás, limescsere miatt)</p>
+
+<p>köv órán: <script type="math/tex" id="MathJax-Element-48">f * f = f</script></p></div></body>
+</html>
