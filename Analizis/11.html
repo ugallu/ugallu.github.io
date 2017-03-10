@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11.óra</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="11-óra">11. óra</h1>
+
+
+
+<h3 id="fourier-transzformáció-tulajdonságai">Fourier transzformáció tulajdonságai</h3>
+
+<p><script type="math/tex" id="MathJax-Element-325">F_+ f(k) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-+ ikx} f(x) dx</script> ; <script type="math/tex" id="MathJax-Element-326"> f \in L^2 \rightarrow F_{+-} f \in L^2, F_+F_- = F_-F_+ = id</script> (L2-ben igaz, pár helyen eltérhetnek, akkor teljesen ugyanaz, ha f maga is abs integrálható, akkor a sorrendiségek nem számítanak)</p>
+
+<blockquote>
+  <p>megjegyzés: pontonkénti ért. általában csak akkor, ha f egyben <script type="math/tex" id="MathJax-Element-327"> \in L^1</script></p>
+</blockquote>
+
+<p><script type="math/tex" id="MathJax-Element-328">(F_+F_+f)(x) = f(-x) \rightarrow F_+^4= id</script> <br>
+<script type="math/tex" id="MathJax-Element-329">F_{+-}</script> unitér lin bijekció melyre <script type="math/tex" id="MathJax-Element-330"><F_f, F_+g> = <f,g> \forall f,g \in L^2</script> <br>
+<script type="math/tex" id="MathJax-Element-331">(F_+f')(k) = ik (F_+f)(k), (F_-f')(k) = -ix(F_-f)(x)</script> <br>
+eltolás: <script type="math/tex" id="MathJax-Element-332"> (F_+f)(k+h) = F_+{x \rightarrow e^{-ihx}f(x)} (k)</script> <br>
+<script type="math/tex" id="MathJax-Element-333"> (F_-f)(x+a) = (F_-{k \rightarrow e^{iak} f(k)} (x))</script> <br>
+konv: <script type="math/tex" id="MathJax-Element-334">F_+(f*g) = \sqrt{2 \pi} (F_+ f)(F_+ g)</script> <script type="math/tex" id="MathJax-Element-335">(f,g \in L^1)</script> <br>
+nyujtás: <script type="math/tex" id="MathJax-Element-336">\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-ikx} f(\lambda x) dx = \frac{1}{\sqrt{2 \pi}} e^{-i\frac{k}{\lambda} y} f(y) \frac{1}{\lambda} dy = \frac{1}{\lambda} F_+f(\frac{k}{\lambda})</script> - ahol <script type="math/tex" id="MathJax-Element-337">\lambda \neq 0</script> és y = <script type="math/tex" id="MathJax-Element-338">\lambda x</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-339"> F_+(x \rightarrow  e^{-\frac{x^2}{2}}) (k)) = e^{-\frac{k^2}{2}}</script> </p>
+
+<p>feladat: <script type="math/tex" id="MathJax-Element-340">f*f = f</script></p>
+
+<p>megold: <script type="math/tex" id="MathJax-Element-341">\sqrt{2 \pi} (F_+ f)(F_+ f) = F_+ f</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-342">\sqrt{2 \pi} y^2 = y \rightarrow y = 0, y=\frac{1}{2 \pi}</script> - ezek értékek, tetszőleges fv ahol valahol 0 valahol <script type="math/tex" id="MathJax-Element-343">\frac{1}{2 \pi}</script> </p>
+
+<h4 id="feladatok-jövő-hétre">Feladatok jövő hétre</h4>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-499">a \neq 0, \int_{-\infty}^{\infty} \frac{sin(ax)}{(1+x^2)x} dx = ?</script></li>
+<li><script type="math/tex" id="MathJax-Element-500">a,b \neq 0, \int_{-\infty}^{\infty} \frac{cos(ax)}{(1+x^2)(1+(bx)^2)} dx = ?</script> <br>
+(elsőnél sin ax x a negyszögjelnek a fourier trafója, a másikat is felismerhetjük - a fourier trafó távolságtartó, skalárszorzatot fouriertrafó után számoljuk ki) <br>
+(második ua. picit megvariálva)</li>
+</ul>
+
+<p>találomra mondjunk egy fourierrel jól megoldható egyenletet: f(x)+f’(x)+f(x+h)+kov =0 (fourier térben ezek szorzások lesznek)</p>
+
+<p><script type="math/tex" id="MathJax-Element-501">\overline{f}(k) = {1 \in [-1,f], 0 }</script> <br>
+<script type="math/tex" id="MathJax-Element-502">(F_+\overline{f})(x) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{ikx} dk = \frac{1}{\pi 2} [\frac{e^{ikx}}{ix}]^{k=1}_{k=-1} =</script> <br>
+<script type="math/tex" id="MathJax-Element-503"> \frac{1}{2 \pi} \frac{1}{ ix} (e^{ix}-e^{-ix}) = \sqrt{\frac{2}{\pi}} \frac{sin(x)}{x}</script> <br>
+<script type="math/tex" id="MathJax-Element-504">f(x) = \frac{1}{\pi} \frac{sin(x)}{x}</script>ez egy megoldása az <script type="math/tex" id="MathJax-Element-505">f*f = f</script> egyenletnek</p>
+
+<p>konjugált számolás: <br>
+<script type="math/tex" id="MathJax-Element-506">\overline{F_+ f(k)} = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \overline{e^{-ikx} f(x)} dx = \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} e^{ikx} \overline{f} (x) dx= (F_+ \overline{f} ) (-k) = (F_-\overline{f} ) (k)</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-507"> f = \overline{f} \leftrightarrow F_+f  </script> páros fv <script type="math/tex" id="MathJax-Element-508"> \leftrightarrow F_+ f = F_f</script></p>
+
+<p>overline az hullám itt <br>
+<script type="math/tex" id="MathJax-Element-509"> \overline{f}(k) = e^{-a|k|}</script> - így pozitív és negatív irányban is elég gyorsan lecseng (abs érték miatt) <br>
+<script type="math/tex" id="MathJax-Element-510"> F_{-+} \overline{f}(x) =</script> <br>
+<script type="math/tex" id="MathJax-Element-511">= \frac{1}{\sqrt{2 \pi}} \int_{- \infty}^{\infty} e^{ikx} e^{-a|k|} dk = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{0} e^{ikx}e^{ak} dk +  \int_{0}^{\infty} e^{ikx}e^{-ak} dk  </script> - páros fvnél a fourier trafó az valós - konjugáltat kell venni hogy valós legyen az eredményünk <br>
+<script type="math/tex" id="MathJax-Element-512"> [\frac{e^{(ix+a)k}}{ix+a}]_{-\infty}^{0} + [\frac{e^{ikx} e^{-ak}}{ix+a}]_{0}^{\infty} = \frac{1}{\sqrt{2 \pi }} ((\frac{1}{ix+a}-0) + (0-\frac{1}{ix-a})  ) = \frac{1}{\sqrt{2 \pi}} (\frac{1}{a+ix} + \frac{1}{a-ix}) </script> <br>
+<script type="math/tex" id="MathJax-Element-513">(F_{+-} \overline{f}) (x) = \frac{1}{\sqrt{2 \pi}} \frac{2a}{ a^2 + x^2}</script></p>
+
+<h3 id="határozatlansági-reláció">Határozatlansági reláció</h3>
+
+<p>// hang és levágása - kell egy magas frekveciás tag</p>
+
+<p>pl.: <script type="math/tex" id="MathJax-Element-57">Supp(f), Supp(F_+ f) \in [a,b]</script> valamilyen véges <script type="math/tex" id="MathJax-Element-58">a,b \in \Re, a < b </script>esetén <script type="math/tex" id="MathJax-Element-59">\rightarrow f = 0</script> - precizen kezdődő és véget érő fv - ezt most nem látjuk be - komplex függvénytan needed</p>
+
+<p>Mi most: szórásnégyzetek szorzatára mondunk ki valamit <br>
+minek a szórásnégyzetére? Tegyük fel hogy <script type="math/tex" id="MathJax-Element-60">f \in L^2, ||f|| = 1 </script>, legyen f egy valszín eloszlás, így van szórása is <br>
+tudjuk hogy normatartó a fourier trafó: <script type="math/tex" id="MathJax-Element-61">||F_+f|| = 1</script> - mindkettőnek van szórás</p>
+
+<p>sima box-szerű “beszorítás” helyett szórás alapján fogjuk beszorítani a függvényünket. </p>
+
+<p><script type="math/tex" id="MathJax-Element-62"> x \rightarrow |f(x)|^2</script>  : valószínűség-eloszlás <script type="math/tex" id="MathJax-Element-63">\Re</script>-en <script type="math/tex" id="MathJax-Element-64">\rightarrow \sigma</script> szórás <br>
+<script type="math/tex" id="MathJax-Element-65"> x \rightarrow |F_+f(x)|^2</script>: valószínűség-eloszlás <script type="math/tex" id="MathJax-Element-66">\Re</script>-en <script type="math/tex" id="MathJax-Element-67">\rightarrow \overline{\sigma}</script> szórás <br>
+megmutatjuk: <script type="math/tex" id="MathJax-Element-68">\sigma \overline{\sigma} \geq </script> konsans //fix geq(&gt;) <br>
+// eltolások e-ados szorzótényező lesz, de ez a másik térben nem változtatnak <br>
+Feltehetjük: mindkét eloszlás várhatóértéke = 0 (ha nem, akkor eltoljuk őket, ami nem változtataz absérték négyzeten, lásd előző sor)</p>
+
+<p><script type="math/tex" id="MathJax-Element-69">\Sigma_f^2\int_{-\infty}^{\infty} (x-0)^2 |f(x)|^2  = \int_{-\infty}^{\infty} x^2 |f(x)|^2 dx </script> // szórásnégyzet , integrál alatt |xfx|^n van <br>
+<script type="math/tex" id="MathJax-Element-70">\overline{\Sigma}_f^2 = \int_{-\infty}^{\infty} k^2|(F_+ f) (k) |^2 dk = \int_{-\infty}^{\infty} |(F_+ f') (k)|^2 dk = \int_{-\infty}^{\infty} |f'(x)|^2 dx = </script></p>
+
+<p><script type="math/tex" id="MathJax-Element-71">\Sigma_f \overline{\Sigma_f} = || x \rightarrow xf(x)|| ||f'|| = ||g|| ||f'|| </script> ahol g(x) az <script type="math/tex" id="MathJax-Element-72">xf(x) </script> <br>
+<script type="math/tex" id="MathJax-Element-73">>= _{cauchy-schwartz}  |<g,f'>| = | \int_{-\infty}^{\infty} xf(x) f'(x) dx</script> <br>
+<script type="math/tex" id="MathJax-Element-74">=|\int{-\infty}^{\infty} x \frac{d}{dx} \frac{1}{2} (f(x))^2 dx |= </script> // parciális</p>
+
+<p><script type="math/tex" id="MathJax-Element-75"> = \frac{1}{2} \int_{-\infty}^{\infty} |f|^2 = \frac{1}{2} ||f||^2 = \frac{1}{2}</script> </p>
+
+<p>egyenlőség esete: <script type="math/tex" id="MathJax-Element-76">f' = \lambda g</script> azaz <script type="math/tex" id="MathJax-Element-77">f'(x) = - \lambda xf(x) \rightarrow f(x) =  e^{\frac{- \lambda}{2} x^2}</script> - ez jó (f akárhanyadik deriváltja L2-beli) ha <script type="math/tex" id="MathJax-Element-78">\lambda > 0</script></p></div></body>
+</html>
