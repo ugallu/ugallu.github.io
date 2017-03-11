@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="ii-előadás">II. előadás</h1>
+
+<p>Példafeladat:</p>
+
+<table>
+<thead>
+<tr>
+  <th>feladat</th>
+  <th>megjegyzés/ötlet</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td><script type="math/tex; mode=display" id="MathJax-Element-209"> \int_{0}^{\infty} \frac{arctg(2x) - arctg(x)}{x} dx</script></td>
+  <td>Létezik az integrál? Értéke véges?  - <em>integrál létezik, tartományt két részre bontva (0-1-végtelen) belátható, hogy véges</em></td>
+</tr>
+<tr>
+  <td><script type="math/tex; mode=display" id="MathJax-Element-210"> I_t = \int_0^\infty \frac{arctg(tx) - arctg(x)}{x} dx</script></td>
+  <td>új változót bevezettünk 2 helyett, mivel nincs prior fvünk</td>
+</tr>
+<tr>
+  <td><script type="math/tex; mode=display" id="MathJax-Element-211"> \frac{d}{dt} I_t = \frac{d}{dt} \int_0^\infty ... = \int_0^\infty \frac{d}{dt}  ... </script></td>
+  <td>bevisszük a t szerinti deriválást</td>
+</tr>
+<tr>
+  <td><script type="math/tex; mode=display" id="MathJax-Element-212"> \int_0^\infty \frac{d}{dt}  \frac{arctg(tx)}{x} - \frac{arctg(x)}{x} dx = \int_0^\infty \frac{1}{1+(tx)^2}\frac{x}{x} </script></td>
+  <td>tagonként deriválunk t szerint. második tagban nincs t - tehát konstans, így eltűnik</td>
+</tr>
+<tr>
+  <td><script type="math/tex; mode=display" id="MathJax-Element-213"> \int_0^\infty \frac{1}{1+(tx)^2} = [\frac{1}{t} arctg(tx)]_{x=0}^\infty</script></td>
+  <td>kiintegrálunk x szerint</td>
+</tr>
+<tr>
+  <td><script type="math/tex; mode=display" id="MathJax-Element-214">\frac{d}{dt} I_t = \frac{\pi}{2} \frac{1}{t}</script></td>
+  <td>integrálunk t szerint</td>
+</tr>
+<tr>
+  <td><script type="math/tex; mode=display" id="MathJax-Element-215">I_t = \frac{\pi}{2} log(t) + C </script></td>
+  <td>mennyi a C?</td>
+</tr>
+<tr>
+  <td><script type="math/tex; mode=display" id="MathJax-Element-216">I_1 = 0</script></td>
+  <td>fogalmam sincs hogy jött ez ki</td>
+</tr>
+<tr>
+  <td></td>
+  <td>visszahelyettesítve a képletbe ezt kijön hogy C = 0</td>
+</tr>
+</tbody></table>
+
+
+<blockquote>
+  <p>Az alábbi megközelítéssel gyakran fogunk találkozni (Laplace, Fourier, Wavelet) - képezzünk egy K kernel segítségével egy másik függvényt az eredetiből: <br>
+  f <i class="icon-right-big"></i> <script type="math/tex" id="MathJax-Element-217">f'(t) = \int K(t,x) f(x) dx</script> - ahol K a kernel függvény <br>
+  <script type="math/tex" id="MathJax-Element-218">f(x) = \int K'(t,x) f'(t) dt</script></p>
+</blockquote>
+
+<p>Az integrálás lineáris transzformáció, belátható ez, mivel:</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-219">\int f_1 + \int f_2 = \int f_1 + f_2</script> - additív</li>
+<li><script type="math/tex" id="MathJax-Element-220">\int \lambda f = \lambda \int f</script> - konstans kivihető</li>
+</ul>
+
+<p>Tehát a fenti is lineáris transzformáció, valamint</p>
+
+<ul>
+<li><script type="math/tex" id="MathJax-Element-221">(f_1+f_2)' = f_1' + f_2'</script></li>
+<li><script type="math/tex" id="MathJax-Element-222">(\lambda f )' = \lambda f'</script></li>
+</ul>
+
+
+
+<h4 id="eddig-lineáris-transzformációk-elmélete-véges-dimenzióban-pl-rn-vektortérben-lineáris-algebra-mátrixok">Eddig: lineáris transzformációk elmélete véges dimenzióban (pl <script type="math/tex" id="MathJax-Element-223">R^n</script> vektortérben): lineáris algebra, mátrixok</h4>
+
+<p>Két új dologgal módosul:</p>
+
+<ul>
+<li>nem véges dimenziójú vektorterünk lesz</li>
+<li>a vektortér komplex: C fölötti, nem pedig R fölötti <br>
+<script type="math/tex" id="MathJax-Element-224"> V = {f:R-> C}</script></li>
+</ul>
+
+<p>Eddig: (x,y), (x,y,z) elemei voltak a vektortérnek, most (x,y,z,…. ) végtelen eleműek. Függvényt végtelen pontban adunk meg ezzel.</p>
+
+<p>Kitérő - vektorterekre: kompex skaláris szorzatos terek: <br>
+Legyen V lineáris tér C fölött.  <br>
+Adott t : V x V <i class="icon-right-big"></i> V <br>
+C x V <i class="icon-right-big"></i> V és 0 eleme V kitüntetett elem, melyre teljesül:</p>
+
+<ul>
+<li>kommutatív: v + w = w + v</li>
+<li>asszociatív: u + (v + w) = (u + v) + w</li>
+<li>0 + v = v</li>
+<li>1v = v</li>
+<li><script type="math/tex" id="MathJax-Element-225">\lambda (v+w) = \lambda v + \lambda w </script></li>
+<li><script type="math/tex" id="MathJax-Element-226">(\lambda + \rho )v = \lambda v + \rho v</script></li>
+<li><script type="math/tex" id="MathJax-Element-227">(\lambda \rho )v = \lambda \rho v</script> <br>
+ahol u, w, v, eleme V és <script type="math/tex" id="MathJax-Element-228">\lambda , \rho</script> eleme C <br>
+pl.: <script type="math/tex" id="MathJax-Element-229">C^n</script></li>
+</ul>
+
+
+
+<h4 id="skaláris-szorzat">Skaláris szorzat</h4>
+
+<p>(megj.: eddig ez az egymásra vetített vektorok nagysága volt, vektorméretek szorzata * cos(közbezártszög)) <br>
+<script type="math/tex" id="MathJax-Element-230"> <.,.></script> alakú, V x V <i class="icon-right-big"></i> C <br>
+komplex térben problémák: skaláris szorzat mindig pozitív szám volt, de definíció szerint <script type="math/tex" id="MathJax-Element-231"><iv, iv> = ii <v,v> = -1 <v,v></script></p>
+
+
+
+<h5 id="korrekciók">Korrekciók:</h5>
+
+<ol>
+<li>Első változó legyen kötött, másodikban pedig lineáris <br>
+<script type="math/tex" id="MathJax-Element-232"> <v, x+\lambda y> = <v, x> + \lambda<v,y> </script> <br>
+<script type="math/tex" id="MathJax-Element-233"> <x+\lambda y, v> = <x,v> + \overline{\lambda}<y,v></script> konjugált lett lambda, ez lineáris és ki is jön</li>
+<li><script type="math/tex" id="MathJax-Element-234"><u,v> = \overline{<v,u>}</script></li>
+<li><script type="math/tex" id="MathJax-Element-235"><v,v>  \geq 0</script> (0 ha v = nullvektor)  -  hossznégyzetet adja meg</li>
+</ol></div></body>
+</html>
