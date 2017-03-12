@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h2 id="viii-óra">VIII. óra</h2>
+
+<p><script type="math/tex" id="MathJax-Element-64"> f(x) = x </script> <br>
+<script type="math/tex" id="MathJax-Element-65"><e_n,f> = \int_{-\pi}^{\pi} \overline{e}_n f = 0 </script> ha <script type="math/tex" id="MathJax-Element-66"> n = 0</script> és <script type="math/tex" id="MathJax-Element-67">\frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} e^{-inx} d xd = i \frac{\sqrt{2 \pi}}{ n } (-1)^n</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-68"> \sum_{-\infty}^{\infty} |<e_n,f>|^2 = 2\sum^{\infty} (\frac{\sqrt{2 \pi}}{n})^2 = 4 \pi \sum_{1}^{\infty} \frac{1}{n^2}</script> ???? <br>
+<script type="math/tex" id="MathJax-Element-69"> ||f||^2 = \int_{-\pi}^{\pi} |f|^2 = \int_{-\pi}^{\pi} x^2 dx = [\frac{1}{3} x^3]_{-\pi}^{\pi} = \frac{1}{3} \pi^3 - \frac{1}{3}(-\pi)^3 = \frac{2}{3} \pi^3 \rightarrow ||f||^2 = </script> <br>
+<script type="math/tex" id="MathJax-Element-70"> \sum_{-\infty}^{\infty} |<e_n,f>|^2 </script> - ahol a bal oldal <script type="math/tex" id="MathJax-Element-71">\frac{2}{3} \pi^3</script> a jobb oldal pedig  <script type="math/tex" id="MathJax-Element-72">4 \pi \sum_{1}^{\infty} \frac{1}{n^2}</script> <br>
+tehát: <script type="math/tex" id="MathJax-Element-73">\sum_{1}^{\infty} \frac{1}{n_2} = \frac{\pi^2}{6}</script>.</p>
+
+<p>Mikro lehet igaz a pontonként konvergencia is? <br>
+Legyen <script type="math/tex" id="MathJax-Element-74">f \ in L^2</script> // véges intervallumon úgyis az, folytonosak a függvényeink <br>
+// <script type="math/tex" id="MathJax-Element-75">[-\infty, \infty]</script> ezen már a konstans 1 függvény sem az</p>
+
+<p><script type="math/tex" id="MathJax-Element-76">\rightarrow f = \sum_{n = -\infty}^{\infty} <e_n,f> e_n </script> <br>
+<script type="math/tex" id="MathJax-Element-77">f-\sum_{-N}^{N} <e_n, f> e_n = ? = </script> —\ <br>
+<script type="math/tex" id="MathJax-Element-78"> \sum_{|n| > N} <e_n,f> e_n</script>   —– különböznek</p>
+
+<p>sidenote: <br>
+// <script type="math/tex" id="MathJax-Element-79">|f|^2 \geq 2 |f|-1 \rightarrow</script> <br>
+// <script type="math/tex" id="MathJax-Element-80">|f| \leq \frac{1}{2} |f|^2 + 0.5</script> (jobb oldalnál intergálható függvénnyel majoráljuk), a 0.5-höz: <script type="math/tex" id="MathJax-Element-81">[-\infty, \infty]</script>  intervallumon nem integrálható <br>
+kül(x) = ?  <br>
+<script type="math/tex" id="MathJax-Element-82">|\sum_{|n| > N} <e_n,f> e_n(x)| \leq \sum_{|n| > N} | <e_n,f>| \frac{1}{\sqrt{2 \pi}} </script></p>
+
+<p>Tegyük fel hogy: <script type="math/tex" id="MathJax-Element-83">\sum_{-\infty}^{\infty} |<e_n,f>| = S < \infty</script> <br>
+Ekkor <script type="math/tex" id="MathJax-Element-84">\lim_N \sum_{n=-N}^{N} |<e_n,f>| = S</script> <br>
+maradék: <script type="math/tex" id="MathJax-Element-85">\sum_{|n|>N}| <e_n, f>| = S - \sum_{n = - N }^{N} |<e_n,f>| \rightarrow 0  </script> ha <script type="math/tex" id="MathJax-Element-86"> N \rightarrow \infty</script> <br>
+Tehát <script type="math/tex" id="MathJax-Element-87">\forall \epsilon > 0 \exists N_{\epsilon}: N > N_{\epsilon} \rightarrow \sum_{|n|>N} |<e_n,f>| < \epsilon </script>, azaz <br>
+<script type="math/tex" id="MathJax-Element-88">|(f \sum_{n = -N}^{N} <e_n,f>e_n)(x)| \leq \frac{1}{\sqrt{2 \pi}} \epsilon    \forall x \in [-\pi , \pi]</script></p>
+
+<p>Áll.: Legyen f differenciálható ( teljes <script type="math/tex" id="MathJax-Element-89">[-\pi,\pi] -n  f \in L^2</script>), <script type="math/tex" id="MathJax-Element-90">f'\in L^2</script> <br>
+és <script type="math/tex" id="MathJax-Element-91">f(-\pi) = f(\pi), \hat{f}_n = <e_n,f> </script> // f fourier együttható <br>
+<script type="math/tex" id="MathJax-Element-92">f'_n=<e_n,f'></script> // f’ fourier együttható <br>
+<script type="math/tex" id="MathJax-Element-93"> \hat{f}'_n </script> fölösszegezhető??? <script type="math/tex" id="MathJax-Element-94"> \rightarrow \hat{f}_n </script> fölösszegezhető <br>
+<script type="math/tex" id="MathJax-Element-95"> 0.09 </script>???? hiba igaz lesz minden pontban.</p>
+
+<blockquote>
+  <p>Ekkor <script type="math/tex" id="MathJax-Element-96">\hat{f'_n} = i n \hat{f}_n</script></p>
+</blockquote>
+
+<p>Biz.: <br>
+<script type="math/tex" id="MathJax-Element-97">\hat{f}_n = <e_n, f'> =  </script> // periodikus, derivált ne szálljon el <br>
+<script type="math/tex" id="MathJax-Element-98">\int_{-\pi}^{\pi} \overline{e}_nf' = [\overline{e}_n f]_{-\pi}^{\pi} - \int_{-\pi}^{\pi} \overline{e}'_n f = </script> // aminél a határozott integrál 0 <br>
+De mennyi <script type="math/tex" id="MathJax-Element-99">e'_n </script> (derivált) <br>
+<script type="math/tex" id="MathJax-Element-100"> = -\int_{-\pi}^{\pi} \delta\overline{e}_n,f = <\delta e_n, f></script> <br>
+<script type="math/tex" id="MathJax-Element-101"> - <in e_n,f> = in<e_n,f> = i n \hat{f}_n</script> <br>
+észrevétel: ha a fenti teltétel teljesül, akkor <script type="math/tex" id="MathJax-Element-102">\sum_{-N}^{N} |\hat{f}_n| = </script> <br>
+<script type="math/tex" id="MathJax-Element-103"> = \hat{f}_0 + \sum_{-N and n \neq 0}^{N} \frac{1}{n} |\hat{f}_n| </script> // ami egy <script type="math/tex" id="MathJax-Element-104">\frac{1}{n}</script> oszlopvektor és <script type="math/tex" id="MathJax-Element-105">\hat{f}_n</script> oszlopvektor skalárszorzata</p>
+
+<p>(itt Cauchy-Schwartz: )<script type="math/tex" id="MathJax-Element-106">|\hat{f}_0| + \sqrt{\sum_{|n|<N} \frac{1}{n^2}} \sqrt{\sum_{|n|<N} |\hat{f'}_n |^2 } \leq |\hat{f_0}| + \frac{ \pi^2}{3} ||f'|| = |\hat{f_0}| + \frac{\pi}{\sqrt{3}} \cdot ||f'|| \rightarrow  </script> <script type="math/tex" id="MathJax-Element-107"> \sum_{-\infty}^{\infty} |\hat{f}_0| + \frac{\pi}{\sqrt{3}} ||f'|| < \infty </script> <br>
+<script type="math/tex" id="MathJax-Element-108"> f(x) = x, \hat{f_n} = \frac{1}{n} x^2 ~ x, g' = f, \hat{g_n}' = i n \hat{g_n}</script></p>
+
+<h3 id="fourier-sor-és-konvolúció">Fourier sor és konvolúció</h3>
+
+<p>van egy diszkrét jelsorozatunk (valós számokból áll, pl jelerősséget mutat)</p>
+
+<p><script type="math/tex" id="MathJax-Element-46">\rightarrow^{be} [?] \rightarrow^{ki}</script>, -1,0,1,2 stb időpontokat vizsgálunk <br>
+- jelnek véges a esbessége <br>
+- feszugrás nem végigfut, feldarabolódhat ????</p>
+
+<ul>
+<li>x[-2,-1,0,1,2,3]</li>
+<li><p>y[5,2, 3, 8, 7, 11]</p></li>
+<li><p>bemenet 20%-a elveszik</p></li>
+<li>40%-a 1 időegység alat átér</li>
+<li>30%-a 2 időegység alat átér</li>
+<li>10%-a 3 időegység alat átér </li>
+</ul>
+
+<p>idő: x <br>
+bemenet: y <br>
+mi a kimenet? Első két időpontban még semmi.  <br>
+A harmadik (0-s) időponthoz: <script type="math/tex" id="MathJax-Element-47">5*0.1 + 2*0.3 + 3*0.4</script> <br>
+A negyediknél: <script type="math/tex" id="MathJax-Element-48">2*0.1+3*0.3+8*0.4</script> <br>
+általánosan felírva: <script type="math/tex" id="MathJax-Element-49"> c_n = 0.1*b_{n-3} + 0.3*b_{n-2} + 0.4*b_{n-1} = </script> <br>
+legyen <script type="math/tex" id="MathJax-Element-50">t_n = </script></p>
+
+<ul>
+<li>0.1 ha k = 3</li>
+<li>0.3 ha k = 2</li>
+<li>0.4 ha k = 1</li>
+</ul>
+
+<p>így <script type="math/tex" id="MathJax-Element-51"> = t_3 b_{n-3} + t_2 b_{n-2} + t_1 b_{n-1} + ... =  </script> <br>
+<script type="math/tex" id="MathJax-Element-52"> \sum_{k=-\infty}^{\infty} t_n b_{n-k}</script> - sorozat konv.</p>
+
+<p>Def.: <script type="math/tex" id="MathJax-Element-53">t,b : Z \rightarrow C</script> <br>
+<script type="math/tex" id="MathJax-Element-54">(t * b)_n = \sum_{k = -\infty}^{\infty} t_n b_{n-k} </script> (ha létezik)</p>
+
+<p>Eddig vannak függvényeink:  <br>
+<script type="math/tex" id="MathJax-Element-55">f,g \in L^2([-\pi,\pi], C) </script> <br>
+<script type="math/tex" id="MathJax-Element-56">\rightarrow f = \sum_{-\infty}^{\infty} \hat{f}_n e_n </script> <br>
+<script type="math/tex" id="MathJax-Element-57">\rightarrow g = \sum_{-\infty}^{\infty} \hat{g}_n e_n </script> <br>
+// ha a függvény periodikus, sokszor deriválható <script type="math/tex" id="MathJax-Element-58">\rightarrow</script> \frac{1}{n^x}-el csökkenő <script type="math/tex" id="MathJax-Element-59">\hat{f}</script>-nek ????</p>
+
+<p><script type="math/tex" id="MathJax-Element-60">f * g ?</script> vkinek a fourier együtthatója? <br>
+?? <script type="math/tex" id="MathJax-Element-61"> \rightarrow (\sum_{-\infty}^{\infty} (\hat{f}*\hat{g}) e_n  )^{(x)} = ? = \sum_{n} \sum_k \hat{f_K} \hat{g_{n-k}} \frac{1}{\sqrt{2 \pi}} e^{inx}</script>// intuitívan, pontos feltételek nélkül</p>
+
+<p><script type="math/tex" id="MathJax-Element-62">\frac{1}{\sqrt{2 \pi}} \sum_n \sum_k \hat{f_K} e^{ikx} \hat{g_{n-k} } e^{i(n-k)x } = </script> és legyen m = n-k <br>
+<script type="math/tex" id="MathJax-Element-63"> \frac{1}{\sqrt{2 \pi}} (\sum_n \hat{f_k})e^{ikx}(\sum_m \hat{g_m} e^{imx}) = \sqrt{2 \pi} f(x) g(x)  </script> <br>
+minden lépés megtehető?</p></div></body>
+</html>
