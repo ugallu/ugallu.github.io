@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h2 id="iii-előadás">III. Előadás</h2>
+
+
+
+<h3 id="cn-a-szokásos-skaláris-szorzással"><script type="math/tex" id="MathJax-Element-1">C^n </script> a szokásos skaláris szorzással</h3>
+
+<p><script type="math/tex" id="MathJax-Element-2"><x,y> = \sum^n \overline{x_k}y_k</script> <br>
+<script type="math/tex" id="MathJax-Element-3"><x,y> = 2 \overline{x_2} y_1 + \overline{x_2} y_2 + i\overline{x_1} y_2 - i \overline{x_2}y_1</script> <br>
+egy sor hiányzik <br>
+<script type="math/tex" id="MathJax-Element-4"><y,x> =\overline{(x_1+ix_2)}(y_1+iy_2) + \overline{x_1}y_1 > 0</script> - átírás <br>
+lineáris yban, konj. lin <br>
+<script type="math/tex" id="MathJax-Element-5"><x,x> = \overline{(x_1+ix_2)}(x_1+ix_2) + \overline{x_1}x_1</script> <br>
+<script type="math/tex" id="MathJax-Element-6">|x_1+ix_2|^2 + |x_1|^2 \geq 0</script> akkor és csak akkor, ha <script type="math/tex" id="MathJax-Element-7">x_1 = x_2 = 0</script></p>
+
+
+
+<h3 id="vektortér-elemei-függvények">Vektortér elemei függvények</h3>
+
+<ul>
+<li>folytonos intervallum</li>
+<li><script type="math/tex" id="MathJax-Element-8">V = C ([a,b], C)</script> ???</li>
+<li><script type="math/tex" id="MathJax-Element-9"><f,g> := \int_a^b \overline{f}(x) g(x) dx</script> - ez olyan, mint a skalárszorzat, csak folytonos intervallumon van</li>
+<li>Igaz: <br>
+<ul><li>g-ben lineáris</li>
+<li>f-ben konj. lineáris</li>
+<li>f csere g-vel = konjukció</li>
+<li>f = g esetén pozitív</li>
+<li>0 akkor és csak akkor ha nullfüggvény</li></ul></li>
+</ul>
+
+<p><script type="math/tex" id="MathJax-Element-10">V = L^2 (R,C), <f,g> = \int_R  \overline{f}g </script> <br>
+De mi az hogy <script type="math/tex" id="MathJax-Element-11">L^2</script> ?</p>
+
+
+
+<h3 id="függvényosztályok-l2-tér-lp-tér">Függvényosztályok - <script type="math/tex" id="MathJax-Element-12">L^2</script> tér, <script type="math/tex" id="MathJax-Element-13">L^P</script> tér</h3>
+
+<blockquote>
+  <p>Kevésbé precíz definíció: <br>
+  <script type="math/tex" id="MathJax-Element-14">L^P (R,C)</script> tér elemei azon függvények <script type="math/tex" id="MathJax-Element-15"> f:R => C</script> melyre <script type="math/tex" id="MathJax-Element-16">\int_R |f|^P < \infty </script></p>
+</blockquote>
+
+<p>Megjegyzés: Két függvény “ugyanaz”, ha 0-mértékű halmaza eltér (véges számú pontban különböznek az értékei)</p>
+
+
+
+<h4 id="l2-tér"><script type="math/tex" id="MathJax-Element-17">L^2</script> tér</h4>
+
+<p>Valós számegyenesen kiintegrálható négyzetük valós szám</p>
+
+<p>Def.: Egy V skaláris szorzatos térben <script type="math/tex" id="MathJax-Element-18">\forall v </script> eleme  V, bevezetjük v normáját (hosszát): <script type="math/tex" id="MathJax-Element-19">||v|| = \sqrt{<v,v>}</script> - és ez pozitív valós szám</p>
+
+<blockquote>
+  <p><strong>Cauchy-Schwartz egyenlőtlenség</strong> <br>
+  Komplex, skalárszorzatos térben igaz a háromszögegyenlőtlenség <br>
+  <script type="math/tex" id="MathJax-Element-20">|<v,w>| \leq ||v|| \cdot ||w||</script> és egyenlő akkor és csak akkor ha párhuzamosak</p>
+</blockquote>
+
+<p>Biz.: </p>
+
+<ul>
+<li>triviális eset - párhuzamosak: ha v || w, pl.: <script type="math/tex" id="MathJax-Element-21">v = \lambda w</script> melyben lambda komplex, akkor <script type="math/tex" id="MathJax-Element-22">|<v,w>| = |<\lambda w,w>| = \overline{\lambda}|<w,w>| = </script> <script type="math/tex" id="MathJax-Element-23"> |\lambda| <w,w> = | \lambda | ||w|| || w ||  = \sqrt{\overline{\lambda} \lambda} \sqrt{<w,w> } || w || = \sqrt{<\lambda w , \lambda w>} || w || = || v || || w || </script></li>
+<li>nem triviális eset: v nem párhuzamos w-re, illetve egyik sem 0 <br>
+belátható, hogy ekkor <script type="math/tex"> v + \lambda w != 0</script> tetszőleges <script type="math/tex">\lambda</script> komplex számra <br>
+belátható hogy <script type="math/tex"> <v+\lambda w, v + \lambda w>   > 0 </script> tetszőleges <script type="math/tex">\lambda</script> komplex számra <br>
+kifejtve: <script type="math/tex">|| v || ^2 + <v, \lambda w> + <\lambda w, v> + \lambda^2 || w || </script></li>
+</ul>
+
+<p>2 * Real part of <script type="math/tex"><v, \lambda w > = 2*Re(\lambda <v,w> )</script> <br>
+és legyen <script type="math/tex">\lambda = \overline{<v,w>} t </script> ahol t egy valós szám <br>
+ekkor felírva az egyenletet: <script type="math/tex">|| v || ^2 + <v, \lambda w> + <\lambda w, v> + \lambda^2 || w ||  = || v || ^2 + 2 Re(\overline{v,w} t <v,w>) + |t|^2 ||v,w||^2 ||w ||</script> &gt; 0 <br>
+tehát minden t-re: <br>
+<script type="math/tex">||v||^2 + 2t|<v,w>|^2 + t^2 |<v,w>|^2 ||w||^2 > 0</script> <br>
+t-re parabolát írtunk fel, orientációja egyértelmű, U alakú <br>
+1. eset: <script type="math/tex"><v,w> = 0</script> - nulladrendű <br>
+2. eset <script type="math/tex"><v,w> != 0</script> p másodfokú, fő együttható pozitív <br>
+nem metszi az x tengelyt? diszkrimináns vizsgálat: <script type="math/tex"> 2(|<v,w>|)^2 - 4 |<v,w>|^2 ||w|| ||v||^2</script></p>
+
+
+
+<h5 id="aprópénzre-váltás">Aprópénzre váltás</h5>
+
+<p><script type="math/tex">|\int \overline{f} g|^2 \leq \int|f|^2 \int|g|^2, C = ha f = \lambda g</script></p>
+
+<p>Feladat: <br>
+<script type="math/tex; mode=display">|\int^b_a f(x) dx|^2 \leq (b-a) \int_a^b |f(x)|^2 dx </script> <br>
+ötlet: 1 f(x) a bal oldalon, így <br>
+<script type="math/tex">|<1,f>|^2 \leq ||1||^2 ||f||^2 \int_a^b |f(x)|^2 dx = (b-a) ...</script></p>
+
+
+
+<h3 id="cauchy-schwartz-következménye">Cauchy Schwartz következménye</h3>
+
+<p>Van egy V skalárszorzatos tér. Van egy távolságfogalmunk. <br>
+<script type="math/tex" id="MathJax-Element-72"> d(x,y) =^{def} ||x-y|| \rightarrow</script> konvergenciáról/folytonosságról is tudunk beszélni <br>
+Lemma: <script type="math/tex" id="MathJax-Element-73">x \rightarrow f(x) := <v,x></script> folytonos <br>
+Biz.: Legyen <script type="math/tex" id="MathJax-Element-74">\epsilon > 0, \sigma_{\epsilon} = ...</script> <br>
+Nézzük a függvényértékek közötti eltérést. <br>
+<script type="math/tex" id="MathJax-Element-75">|f(x) - f(y)| = |<v,x> - <v,y>| = |<v,(x-y)>| \leq || v ||  || x-y || \rightarrow \sigma_{\epsilon} = |frac{\Epsilon}{||v||} </script> <br>
+hasonlóképpen: <br>
+<script type="math/tex" id="MathJax-Element-76"> x \rightarrow x + v, x \rightarrow \lambda x</script> folytonos <br>
+Következmény: <br>
+tegyük fel hogy <script type="math/tex" id="MathJax-Element-77"> v_n \in V (n \ in N) </script> és <script type="math/tex" id="MathJax-Element-78"> \exists \lim\limits_{n} V_n = v \in V</script> <br>
+azaz <script type="math/tex" id="MathJax-Element-79"> || v-v_n|| \rightarrow 0 </script>, ha <script type="math/tex" id="MathJax-Element-80"> n \rightarrow \infty</script> - ekkor <script type="math/tex" id="MathJax-Element-81"> \forall w \in V</script> konvergál</p>
+
+<p><script type="math/tex" id="MathJax-Element-82"> <w,v> = <w, lim_n v_n> = </script> : mikor egyenlő a határérték az értékkel? ha folytonos. <br>
+<script type="math/tex" id="MathJax-Element-83"> = \lim_n <w, v_n></script></p>
+
+<h4 id="aprpénzre-váltva">Aprpénzre váltva</h4>
+
+<p>(Vigyázat: <script type="math/tex" id="MathJax-Element-54">V = L^2(\Re, C)</script>)<script type="math/tex" id="MathJax-Element-55">  
+</script>fn(x) = e^{-(x-n)^2} \rightarrow f_n \in L^2(\Re, C)<script type="math/tex" id="MathJax-Element-56">  
+legyen </script>g(x) = 0<script type="math/tex" id="MathJax-Element-57">  
+</script>\forall x<script type="math/tex" id="MathJax-Element-58"> -re :</script> \lim\limits_{n} f_n(x) = g(x) <script type="math/tex" id="MathJax-Element-59">  
+de </script> \lim\limits_{n} f_n \neq g<script type="math/tex" id="MathJax-Element-60">  - mert </script>||f_n-g_n|| $ kosntans táv. más távolságfogalom!</p>
+
+
+
+<h4 id="utoljára">utoljára:</h4>
+
+<p>megkerestük a legjobb másodfokú polinomot az <script type="math/tex" id="MathJax-Element-61">|| f-p ||^2 = \sqrt{\int_0^1 |f(x) - p(x)|^2 dx}</script> <br>
+távolság legkisebb. <script type="math/tex" id="MathJax-Element-62">f(x) = \frac{1}{1+x^2}</script> <br>
+miért nem így csináltuk? <script type="math/tex" id="MathJax-Element-63">p(x) = ax^2 +bx+c</script> <br>
+<script type="math/tex" id="MathJax-Element-64">||f-p|| : ... </script> kifejtjük, integráljuk, lesz valami F(a,b,c) fügvényünk, amit optimalizálunk külön a,b,c-ben <br>
+így is kijön az eredményünk, miért lehet a jelenlegi megoldásunk jobb? az orto.vetítés miatt? <br>
+Az ortobázis felállítása független volt F-től. Ez fix! <br>
+Így pedig két részre bontható a feladat:</p>
+
+<ol>
+<li>megfelelő polinomrendszer felírása (független f-től)</li>
+<li>vetítés elvégzése</li>
+</ol>
+
+<p>ortogonális függvényrendszer eltoltja/ nyimteltje? ortogonális marad ???? <br>
+elég mindnet mondjuk a [-1,1] intervallumon végiggondolni</p>
+
+<p>Vegyük a <script type="math/tex" id="MathJax-Element-65"> x \rightarrow 1,x,x^2,x^3 .. \in L^2([-1,1],C)</script> <br>
+elemeket és hajtsuk végre a G-sek ortogonalizálását <br>
+Legrende polinomokat kapunk.</p>
+
+<p>pl.:  <script type="math/tex" id="MathJax-Element-66">Df(x) = \frac{d}{dx}((1-x^2) \frac{d}{dx} f(x)) = \lambda f(x) </script> (ahol lambda egy konstans) <br>
+kell: [-1,1] intervallumon nem elszálló megoldások <br>
+<script type="math/tex" id="MathJax-Element-67"> q_n (x) = (\frac{d}{dx})^n (x^2-1)^n</script> <br>
+Áll.: Dq_n(x): -n(n+1) q_n(x) = … ell. V<script type="math/tex" id="MathJax-Element-68"> ????  
+(a fenti sornál f helyébe </script>q_n$-t írtunk)</p>
+
+<p><script type="math/tex" id="MathJax-Element-69">\sum_{-\infty}^{\infty} |<e_n,f>|^2 = \sum_{-\infty}^{\infty} |<\frac{1}{x^2}, f>|^2 = \sum ...</script> <br>
+<script type="math/tex" id="MathJax-Element-70"> ||f||^2 = \int_{-\infty}^{\infty} f^2(x) = \int_{-\infty}^{0} f^2(x) +  \int_{0}^{\infty} f^2(x) =^{0+vmi alaku} ||f||^2 = \pi^n   </script></p>
+
+<p><script type="math/tex" id="MathJax-Element-71">f(x) = \sum_{-\pi}^{\pi} \hat{f}_h e^{inx}</script></p></div></body>
+</html>
