@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>12</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h2 id="xii-előadás">XII. Előadás</h2>
+
+<p>Több dimenzióba szeretnénk kiterjeszteni a Fourier-t. Ehhez több dimenzióban kell integrálnunk.</p>
+
+<p>Állítás: <script type="math/tex" id="MathJax-Element-487"> L : \Re^n \rightarrow \Re^n </script> lin. leképzés (mátrix-szal való szorzás), <script type="math/tex" id="MathJax-Element-488">K </script> részhalmaza <script type="math/tex" id="MathJax-Element-489"> \Re^n</script> <br>
+Vol(L(K)) = |det(L)| Vol(K) <br>
+Biz.: </p>
+
+<ul>
+<li>n = 1 - egy dimenzióban ez egy skalárszorzás =  nyújtás - determináns is triviális</li>
+<li>n = 2 - rajz. Riemann integrált használunk, így ez négyzetekre bontja a körünket. az L transzformáció nem változtatja a négyzetek darabszámát. Tehát azt kell átgondoljuk, egy kis négyzet területe hogy változik. Alkalmazzuk egy kis négyzetre a terület változását. <br>
+Formálisan: elég azt nézni, mikor K = { (x,y)<script type="math/tex" id="MathJax-Element-490"> \in \Re^2 | 0 \leq x,y \leq 1 </script>} <br>
+A Lineáris transzformáció az (1,0) vektort ha traszformálja, az az első oszlopát adja vissza. A (0,1) pedig a második oszlopát adja meg. <br>
+Mivel a transzformáció lineáris, ezért ki tudjuk számolni a többi pontot is (origó 0-ban marad, a többi számolható a bázisvektorokból) <br>
+Kaptunk a négyzetünkből egy paralelogrammát. Ezt a területet akarjuk most kiszámolni (terület = alap * magasság szerint). <br>
+Magasság ha fix, nem változik a palalelogramma területe. Tehát a V1, V2 által meghatározott palalelogramma területe ugynanaz, mint a <script type="math/tex" id="MathJax-Element-491">V_1, v_2+\lambda V_1</script> rekordok által meghat. paraplelogramma területe. <br>
+Azt láthatjuk be, hogy a területmennyiség nem fog változni, ha az egyik oszlophoz nem fog változni, ha hozzáadom a másik egy számszorosát. <br>
+Tehát: <br>
+a, ha lin függőek az oszlopvektorok, det 0, terület 0 <br>
+b, ha lin függetlenek, diagonalizálható a mátrix. (külön transzformálja a koordinátákat). Ekkor az eredeti kockánk egyik irányba x, másik irányba y-szorosára nő. Tehát összeszorzom a diagonális elemeket (determináns számolás).</li>
+<li>és így tovább magasabb dimenzióban is</li>
+</ul>
+
+<p>Következmény:  <br>
+Van egy függvényünk: <script type="math/tex" id="MathJax-Element-492">f: \Re^n \rightarrow C</script> <br>
+<script type="math/tex; mode=display" id="MathJax-Element-493"> \int_{\Re^n} f = \int_{_\infty}^{\infty}\int_{_\infty}^{\infty}\int_{_\infty}^{\infty} f(x_1, x_2, x_3, ... )dx dx </script> .. minden változóra <br>
+Köv: ha <script type="math/tex" id="MathJax-Element-494">\exists L^{-1} \leftrightarrow det(L) \neq 0 </script> akkor <br>
+<script type="math/tex; mode=display" id="MathJax-Element-495"> \int_{\Re^n} f \circ L = \frac{1}{|det(L)|} \int_{\Re^n} f</script></p>
+
+<p>Egy dimenzióban ez azt jelenti, hogy a <script type="math/tex" id="MathJax-Element-496"> \int_{-\infty}^{\infty} f(2x) 2dx = \int_{-} </script>hiányos.????</p>
+
+<h3 id="többdimenziós-fourier">Többdimenziós Fourier</h3>
+
+<p>ha <script type="math/tex" id="MathJax-Element-456">f:\Re^n \rightarrow C </script> és <script type="math/tex" id="MathJax-Element-457"> f \in L^2 </script> azaz <script type="math/tex" id="MathJax-Element-458"> \int |f|^2 < \infty</script> <br>
+akkor belátható, hogy <script type="math/tex" id="MathJax-Element-459">\frac{1}{\sqrt{2 \pi}^n}\int e^{-+i <k,x>} f(x) dx </script> // ahol dx az összes dx  <br>
+ez az integrál ez majdnem minden <script type="math/tex" id="MathJax-Element-460"> k \in \Re^n </script> -re létezik, és az így definiált <script type="math/tex" id="MathJax-Element-461"> F_{+-} f \in L^2</script></p>
+
+<p>Miért kell oda az n. hatvány? Azt szeretném, ha az <script type="math/tex" id="MathJax-Element-462">f(x_1, x_2) = f_1(x_1, x_2) f_2(x_1, x_2)</script>, azt szeretnénk ha koordinátánként szét lehessen vágni - esetén az <script type="math/tex" id="MathJax-Element-463">F_{+-} f(k_1, k_2) = \frac{1}{\sqrt{2 \pi}^2} \int \int_{-\infty }^{\infty} e^{+-i(k_1x_1 + k_2x2)} f(x_1, x_2)  dx_1 dx_2 </script> ahol az <script type="math/tex" id="MathJax-Element-464">f(x_1, x_2)</script> az <script type="math/tex" id="MathJax-Element-465">f_1(x_1)f_2(x_2)</script>. Tehát az e-ados rész leírható így: hiánsoy</p>
+
+<p>=<script type="math/tex" id="MathJax-Element-466"> \frac{1}{\sqrt{2 \pi}} \int e^{+- i k_1 x_1} f_1(x_1) dx_1   ... ugyanez f_2,k_2-re</script> =  <br>
+<script type="math/tex" id="MathJax-Element-467"> F_{+-}</script> </p>
+
+<p>hiáynso.</p>
+
+<p><script type="math/tex" id="MathJax-Element-468">\rightarrow  ||f||^2 = \int\int |f(x_1, x_2)|^2 dx_1, dx_2 = \int \int |f_1 (x_1)| |  f_2 (x_2) | </script>negyzetek vannak+</p>
+
+<p><script type="math/tex" id="MathJax-Element-469"> dx</script>-et behozza fv melle, <script type="math/tex" id="MathJax-Element-470"> = ||f_1||^2 ||f_2||^2 </script></p>
+
+<p><script type="math/tex" id="MathJax-Element-471"> ||F_{+-} f_1||^2 ||F_{+-}f_2||^2 = ||F_{+-} f||^2</script> unitér miatt van az 1/gyökkkétpi^n tag. <br>
+Az így bevezetett transzformáció unitér.Magyarázat?</p>
+
+<p><script type="math/tex" id="MathJax-Element-472">F_+ F_-  = F_- F_+ =  </script> identitás</p>
+
+<p><script type="math/tex" id="MathJax-Element-473">F_{+-}: L^2 \rightarrow L^2 </script> unitér</p>
+
+<p>eltolások? <script type="math/tex" id="MathJax-Element-474"> \tau_h(x) =  x - h </script> <br>
+<script type="math/tex" id="MathJax-Element-475">F_+(f \circ \tau_h) = \frac{1}{\sqrt{2 \pi}^n } \int_{\Re^n} e^{+- i <k,x>} f(x-h) dx</script> // ahol dx az össze x-re, f pedig az összes x.re. <br>
+cseréljünk változókat. x-h = z, így <br>
+<script type="math/tex" id="MathJax-Element-476">\frac{1}{\sqrt{2 \pi}^n \int_{\Re^n} e^{+-i <k,z+h>} f(z) } dz</script> fixit.</p>
+
+<p>de e-adnál összeg van. ami </p>
+
+<h3 id="fourier-vetítési-tétel">Fourier vetítési tétel</h3>
+
+<p><script type="math/tex" id="MathJax-Element-188">P_1 f(x_2) = \int f(x_1, x_2) dx_1</script> - ha az f-re egy sűrűségfvre gondolunk, akkor vonalak mentén végigintegráljuk - vonalra összegezve mennyi az oda eső súly <br>
+<script type="math/tex" id="MathJax-Element-189"> F_+ P_1 f(k ) \frac{1}{\sqrt{2 \pi}} \int e^{+- i k x_2} \int f(x_1, x_2) dx_1 dx_2</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-190">\frac{1}{\sqrt{2 \pi}} \int \int e^{+- i (0 x_1 + k x_2)} f(x_1, x_2) dx_1 dx_2 = \sqrt{2 \pi} F_{+-} f(0,k)</script>  <br>
+mivel a forgatás és fourier felcserélhető</p>
+
+<p>Például: <br>
+<script type="math/tex" id="MathJax-Element-191">f(x_1, x_2) = </script> 1 ha |x_1| és |x_2| &lt;1  amúgy 0 <br>
+megjegyzés: indikátorfüggvény: X_h(x) 1 ha x \in H, amúgy 0 <br>
+<script type="math/tex" id="MathJax-Element-192">\rightarrow f(x_1, x_2) = X_{[-1,1]} (x_1) X_{[-1,1]} (x_2)</script></p>
+
+
+
+<pre class="prettyprint"><code class=" hljs vala"><span class="hljs-preprocessor"># box fv</span>
+<span class="hljs-preprocessor"># 0   |-----|   0</span>
+<span class="hljs-preprocessor"># --- |  1  |----</span>
+<span class="hljs-preprocessor"># 0   |-----|   0</span></code></pre>
+
+<p><script type="math/tex" id="MathJax-Element-379">\rightarrow F_{+-} f(k_1,k_2) = F_{+-} X_{[-1,1]} (k_1) F_{+-} X_{[-1,1]} (k_2)</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-380"> = \frac{1}{\pi^2} \frac{sin(k_1)}{k_1} \frac{sin(k_2)}{k2}</script> <br>
+<script type="math/tex" id="MathJax-Element-381"> F_{+-} X_H</script></p>
+
+<p>some magyarázat.</p>
+
+<p>Mi van ha Fourier sorfejtést nézünk?</p>
+
+<p>mi lett volna, ha nem -pi,pi intervallumba mentünk volna. nem lesznek ortogonálisak. <br>
+<script type="math/tex" id="MathJax-Element-382">[-\pi, \pi] </script> helyett nézzük az <script type="math/tex" id="MathJax-Element-383">[a,b] </script> intervallumot <script type="math/tex" id="MathJax-Element-384">(a,b \in \Re, a < b)</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-385">\int_a^b \overline{e^{in\frac{x}{(b-a)}2\pi}} e^{im \frac{x}{b-a}2\pi} dx = \int_a^b e^{i(m-n) \frac{x}{b-a}2\pi} dx</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-386"> = </script> ha b-a, ha n=m <br>
+<script type="math/tex" id="MathJax-Element-387"> = 0</script> ha <script type="math/tex" id="MathJax-Element-388">n \neq m</script> egészek <br>
+<script type="math/tex" id="MathJax-Element-389"> \rightarrow \frac{1}{\sqrt{b-a}} e^{i2\pi \frac{n}{b-a}X}  </script> definicioval</p>
+
+<p><script type="math/tex" id="MathJax-Element-390">{c_n} </script>CONS <script type="math/tex" id="MathJax-Element-391">L^2([a,b], C)</script>-ben <br>
+<script type="math/tex" id="MathJax-Element-392"> f(x_1, x_2) </script> fourier vetítési tétel során mi nem marad érvényben? a forgatási szimmetria nem fog. Levágással dolgozunk, nem a végtelen térrészen csinálunk fourier trafót, hanem a-b intervallumon. <code>[]-&gt;&lt;&gt;-&gt;[]</code>  <br>
+<script type="math/tex" id="MathJax-Element-393">\frac{1}{\sqrt{2 \pi}^n} </script></p></div></body>
+</html>

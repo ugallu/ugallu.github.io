@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>13</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h3 id="xiii-előadás">XIII. előadás</h3>
+
+<p>Módosulni fog az eddigi Fourier transzformáció - korlátos tartomány és korlátos mintaszám szerint. <br>
+Mitől függ a hiba majd?</p>
+
+<p>Most picit megcseréljük, eddig a jelet nyomtuk össze, most az intervallumot növeljük (de ugyanaz a kettő): <br>
+Vegyük a -a,a intervallumban a <script type="math/tex" id="MathJax-Element-530">L^2 ([-a,a],C)</script> -ben <br>
+CONS: <script type="math/tex" id="MathJax-Element-531">e_{a,n} (x) = \frac{1}{\sqrt{2a}} e^{i(\frac{n}{a})\pi x}</script> ahol <script type="math/tex" id="MathJax-Element-532">n \in Z</script></p>
+
+<p><script type="math/tex" id="MathJax-Element-533">f = \sum_{n \in Z} <e_{a,n},f> e_{a,n}</script>  <br>
+<script type="math/tex" id="MathJax-Element-534"> f_{a,n} = \frac{1}{\sqrt{2\pi}} e^{-i(\frac{n}{a}) \pi x} f(x) dx </script> <br>
+gondoljunk az f fvre egy teljes valós egyenesen megadott fvre, de tartója -a,a-ban. <br>
+= \sqrt{\frac{a}{\pi}} F_+ f(\frac{n \pi}{a})</p>
+
+<h3 id="több-dimenzió-pl-2-dim">Több dimenzió, pl 2-dim</h3>
+
+<p>kép: [-a,a], [-b,b] <br>
+<script type="math/tex" id="MathJax-Element-544"> L^2([-a,a] \times [-b,b], C)</script> <br>
+-ben CONS: <script type="math/tex" id="MathJax-Element-545">e_{a,b,n,m} (x,y) = e_{a,n}(x) e_{b,m}(y)</script> ahol <script type="math/tex" id="MathJax-Element-546">n,m \in Z</script> <br>
+<script type="math/tex" id="MathJax-Element-547">\rightarrow f = \sum \hat{f}_{a,b,n,m} e_{a,b,n,m}</script> ahol <br>
+<script type="math/tex" id="MathJax-Element-548"> \hat{f}_a,b,n,m = <e_{a,b,n,m}> = \frac{\sqrt{ab}}{\pi} F_+f(\frac{n\pi}{a} \frac{m\pi}{b})  </script></p>
+
+<p><script type="math/tex" id="MathJax-Element-549">\hat{f}</script>-ok fourier trafók bizonyos helyeken.  <br>
+… …  <br>
+… … <br>
+… … <br>
+probléma: a pontok helyei nem forgásszimmetrikusak, nem ezeken a helyeken látjuk majd a Fourier transzformált értékeit <br>
+ha így számolok, milyen nagyságrendű hibát vétek?</p>
+
+<p>Tfh: <script type="math/tex" id="MathJax-Element-550"> ||f||^2 = 1 </script> és <script type="math/tex" id="MathJax-Element-551"> \int ||x||^2 |f(x)|^2 dx = 1</script>  és <script type="math/tex" id="MathJax-Element-552"> \int \int x_k |f(x)|^2 = 0</script> k=1,2 <br>
+tehát van egy testünk a területen, amit tanulmányozni akarunk. A test leír egy sűrűségfvt, ennek integrálja 1, tipikus mérete 1, ha origóba rakom. <br>
+Veszem a fourier sorfejtettet, de a pontok környékén veszek értéket, ezt transzformálom vissza. Mennyi a hiba? <br>
+Eredeti térben négyzetes hiba = fourier térben négyzetes hiba. Fouriernél a hiba = pont és eltotlja közötti derivált * távolság. <br>
+<script type="math/tex" id="MathJax-Element-553">~\frac{1}{a}, \frac{1}{b}</script> <br>
+dobozbazárás mérete bekerül a hibába <br>
+pillanatnyilag: normál térben véges -&gt; fourierben diszkrét. <br>
+most lesz: diszkrét -&gt; fourierben véges</p>
+
+<p>levágjuk fourierben. <br>
+Hibát alá és felé is becsüljük. <br>
+Átvilágítjuk a testet ldalról, kapunk sűrűségeloszlásokat. <br>
+Fourier tarfó értéke ez egy vonalon, pontok mentén. <br>
+De ezek nem az eredeti trafó pontjai. <br>
+Hány forgatást veszünk figyelembe?</p>
+
+<p>forgatások száma és boxméret is kritikus, mindkettő alábecslése nagy hibát vihet be <br>
+akkorára bővítsük ki a boxot, úgy hogy egy forgatás egy egységet toljon fel.</p>
+
+<h3 id="diszkrét-fourier-transzformáció">Diszkrét Fourier transzformáció</h3>
+
+<p>A komplex egységgyökök <script type="math/tex" id="MathJax-Element-1123"> e^{i 2 \pi \frac{k}{N}} k = 0,1,...N-1</script> <br>
+komplex N-edik egységgyökök. Egység hosszú körön rajtavannak. k/N-es forgatás innentől.</p>
+
+<p>összeadás: <script type="math/tex" id="MathJax-Element-1124">\sum e^{i2\pi \frac{k}{N}}  = 0 </script> ahol N egy pozitív egész</p>
+
+<p><script type="math/tex" id="MathJax-Element-1125">C^N</script> -ben, N-es vektor komplex számokkal <br>
+<script type="math/tex" id="MathJax-Element-1126"> e_K = (...) <- ((e_k)_j = \frac{1}{\sqrt{N}}e^{i 2 \pi \frac{k(j-1)}{N}})</script> // oszlopvektor <br>
+Áll.: e_0, e_1, e_2….vektorok ortonormált bázist alkotnak. <br>
+Biz.: elég ellenőrizni az ortonormáltságot. <br>
+<script type="math/tex" id="MathJax-Element-1127"><e_K1, e_k2> = \frac{1}{N} \sum_{j=1}^N  e^{-i2 \pi \frac{k_1 (j-1)}{N}} e^{-i2 \pi \frac{k_2 (j-1)}{N}}</script> <br>
+<script type="math/tex" id="MathJax-Element-1128">\sum_{j=1}^{N-1} e^{i 2 \pi \frac{(k_2-k_1)j}{N}} = </script> <br>
+<script type="math/tex" id="MathJax-Element-1129">1</script> ha <script type="math/tex" id="MathJax-Element-1130">k_1=k_2</script> <br>
+<script type="math/tex" id="MathJax-Element-1131">0 0 </script> ha <script type="math/tex" id="MathJax-Element-1132"> k_0 \neq k_2</script> &lt;- kell: <script type="math/tex" id="MathJax-Element-1133">\sum e^{{i 2 \pi \frac{j}{N} }^d} = </script><script type="math/tex"> 0 \forall d = 1,2,..</script> <br>
+biz.:  <br>
+legyen d-N leratív prím. d=2 N=3 pontok négyzeteinek képei.  <br>
+Következmény: ez egy ortonormált bázis - kifejthetünk vektorokat. <br>
+<script type="math/tex">\forall v \in C^n</script> <br>
+<script type="math/tex">V = \sum_{k=0}^{N-1} <e_k,v,>e_k = \sum \hat{v}_k</script> <br>
+<script type="math/tex">\hat{v}_k = \frac{1}{\sqrt{N}} e^{-i 2 \pi \frac{k(j-i)}{N}} (v)_j</script></p>
+
+<p><script type="math/tex">\hat{v} (egy komponens) </script>kiszámolása definíció szerint: <script type="math/tex">O(N^2)</script> <br>
+csomó dolgot újra kiszámoltunk</p>
+
+<p>FFT <br>
+N prímtényezőtől függ. ~ <script type="math/tex">O(Nlog(N))</script></p>
+
+<p>konvolúció <script type="math/tex">C^n</script>-ben - periodikus eltolással <br>
+<script type="math/tex"> (v*w )_k = \sum_1^n v_{k-j} w_j</script> // ahol <script type="math/tex">w_{k-j}</script> mod (N) <br>
+elkenéshez periodicitás - javítás széleken 0-val <br>
+<script type="math/tex">\hat{(v*w)}_k = \frac{1}{\sqrt{N}} \sum_{j=1}^{N} e^{-i2\pi \frac{j-1}{N}} \sum_{l=1}^N v_{j-l} w_l</script> <br>
+<script type="math/tex"> = \frac{1}{\sqrt{N}} \sum_{j,l=1}^N e^{i 2 \pi \frac{(k)(j-l-1)}{N}} e^{i 2 \pi \frac{k(ll)}{N}} v_{j-l}w_l = </script> <br>
+u.a. mintha j-l-et elnevezném r-nek <br>
+<script type="math/tex"> = \frac{1}{\sqrt{N}} \sum_{r,l=1}^N e^{i2\pi k \frac{r-1}{N}} v_r e^{i2\pi k \frac{l}{N}} w_l = \sqrt{N} \hat{v}_k \hat{w}_k</script> </p></div></body>
+</html>
