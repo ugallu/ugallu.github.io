@@ -1,39 +1,39 @@
 <body>
 
- <script src="https://unpkg.com/moonjs"></script>
-  
+  <script src="https://unpkg.com/moonjs"></script>
+
   <!-- 1. Adat és template !-->
   <div id="app1">
     <p>{{msg}}</p>
   </div>
-  
+
   <script>
-  
+
     const app1 = new Moon({
       el: "#app1",
       data: {
         msg: "1. Adat a templateben"
       }
     });
-  
+
   </script>
 
-<!-- 2. Set-telt adat példa !-->
-<div id="app2">
+  <!-- 2. Set-telt adat példa !-->
+  <div id="app2">
     <p>{{msg}}</p>
-</div>
+  </div>
 
-<script>
+  <script>
     const app2 = new Moon({
-        el: "#app2",
-        data: {
-            msg: "n"
-        }
+      el: "#app2",
+      data: {
+        msg: "n"
+      }
     });
 
     app2.set('msg', "2. Set-tel megváltotatott adat");
 
-</script>
+  </script>
 
   <!-- 3. Függvény példa !-->
 
@@ -273,12 +273,12 @@
   </script>
 
   <textarea readonly id="code" style="color:white; background-color: rgba(45, 45, 53, 0.815); resize: none; position:fixed; height: 100%; top:0px; width: 50%; right:0px;"></textarea>
-  <script >
+  <script>
     var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-          document.getElementById("code").innerHTML=xhr.responseText;
-        }
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == XMLHttpRequest.DONE) {
+        document.getElementById("code").innerHTML = xhr.responseText;
+      }
     }
     xhr.open('GET', 'http://ugallu.github.io/moonjs/index.html', true);
     xhr.send(null);
