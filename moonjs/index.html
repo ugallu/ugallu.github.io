@@ -1,0 +1,286 @@
+<body>
+
+ <script src="https://unpkg.com/moonjs"></script>
+  
+  <!-- 1. Adat és template !-->
+  <div id="app1">
+    <p>{{msg}}</p>
+  </div>
+  
+  <script>
+  
+    const app1 = new Moon({
+      el: "#app1",
+      data: {
+        msg: "1. Adat a templateben"
+      }
+    });
+  
+  </script>
+
+<!-- 2. Set-telt adat példa !-->
+<div id="app2">
+    <p>{{msg}}</p>
+</div>
+
+<script>
+    const app2 = new Moon({
+        el: "#app2",
+        data: {
+            msg: "n"
+        }
+    });
+
+    app2.set('msg', "2. Set-tel megváltotatott adat");
+
+</script>
+
+  <!-- 3. Függvény példa !-->
+
+  <div id="app3">
+    <p>{{reverse(msg)}}</p>
+  </div>
+
+  <script>
+    const app3 = new Moon({
+      el: "#app3",
+      data: {
+        msg: "lőbetalpmet sávíhynévggüF .3"
+      },
+      methods: {
+        reverse: function (str) {
+          return str.split("").reverse().join("");
+        }
+      }
+    });
+  </script>
+
+  <!-- 4. IF példa !-->
+
+  <div id="app4">
+    <p m-if="condition">4. If-ekre megjelenő templatek</p>
+  </div>
+
+  <script>
+
+    const app4 = new Moon({
+      el: "#app4",
+      data: {
+        condition: true
+      }
+    });
+
+  //app4.set('condition', false);
+
+  </script>
+
+  <!-- 5. Loop példa !-->
+
+  <div id="app5">
+    <ul>
+      <li m-for="item in list">{{item}}</li>
+    </ul>
+  </div>
+
+  <script>
+    const app5 = new Moon({
+      el: "#app5",
+      data: {
+        list: ['Item - 1', 'Item - 2', 'Item - 3', 'Item - 4']
+      }
+    });
+
+    app5.set('list', ['5. Generált listaelem', '5. Generált másik listaelem'])
+
+  </script>
+
+  <!-- 6. EventListener !-->
+
+  <div id="app6">
+    <button m-on:click="increment">6. EventListener: {{count}}</button>
+  </div>
+
+  <script>
+
+    const app6 = new Moon({
+      el: "#app6",
+      data: {
+        count: 0
+      },
+      methods: {
+        increment: function () {
+          //Increment the count by one
+          this.set('count', this.get('count') + 1);
+        }
+      }
+    });
+
+  </script>
+
+  <!-- 7. alap komponens !-->
+
+  <div id="app7">
+    <my-component></my-component>
+  </div>
+
+  <script>
+
+    Moon.component('my-component', {
+      template: "<p>7. Ez egy komponens</p>"
+    });
+
+    const app7 = new Moon({
+      el: "#app7"
+    });
+
+  </script>
+
+  <!-- 8. paraméter passing parenttől !-->
+
+  Communication: Props down, events up.
+
+  <div id="app8">
+    <my-component content="{{parentMsg}}"></my-component>
+  </div>
+
+  <script>
+
+    Moon.component('my-component', {
+      props: ['content'],
+      template: "<p>8. Data from Parent: {{content}}</p>"
+    });
+
+    const app8 = new Moon({
+      el: "#app8",
+      data: {
+        parentMsg: "ez egy átadott paraméter"
+      }
+    });
+
+    app8.set('parentMsg', 'New Parent Data')
+
+  </script>
+
+  <!-- 9. kulon komponens valtoztatás példa !-->
+
+  <div id="app9">
+    <counter-component></counter-component>
+    <counter-component></counter-component>
+  </div>
+
+  <script>
+
+    Moon.component("counter-component", {
+      template: `<div>
+    <button m-on:click="increment">9. Különálló komponensalapú objektumok módosítása fv-el {{count}}</button>
+  </div>`,
+      data: function () {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        increment: function () {
+          this.set("count", this.get("count") + 1);
+        }
+      }
+    });
+
+    const app9 = new Moon({
+      el: "#app9"
+    });
+
+  </script>
+
+
+  <!-- 10 event emit példa !-->
+
+  <div id="app10">
+    <h5>10 esemény propagálás: m-on:esemény="fvhívás": {{total}}</h5>
+    <counter-child-component m-on:increment="incrementTotal">
+    </counter-child-component>
+
+    <counter-child-component m-on:increment="incrementTotal">
+    </counter-child-component>
+  </div>
+
+  <script>
+
+    Moon.component("counter-child-component", {
+      template: `<div>
+    <button m-on:click="increment">Increment {{count}}</button>
+  </div>`,
+      data: function () {
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        increment: function () {
+          this.set("count", this.get("count") + 1);
+          this.emit("increment");
+        }
+      }
+    });
+
+    const app10 = new Moon({
+      el: "#app10",
+      data: {
+        total: 0
+      },
+      methods: {
+        incrementTotal: function () {
+          this.set("total", this.get("total") + 1);
+        }
+      }
+    });
+
+  </script>
+
+  <!-- 11 slot pelda !-->
+  <!-- <slot> a default tartalom !-->
+  <!-- named az spec !-->
+
+  <div id="app11">
+
+    <slot-component>
+
+      <h5>11. Default Slot Content. {{parentMsg}}</h5>
+      <p slot="aslot">Slot content</p>
+      <p slot="bslot">Masik Slot content</p>
+    </slot-component>
+  </div>
+
+  <script>
+
+    Moon.component('slot-component', {
+      template: `<div>
+      <slot></slot> 
+    <slot name="bslot"></slot>
+    <h5>Component Content.</h5>
+    <slot name="aslot"></slot>
+    <slot name="bslot"></slot>
+  </div>`
+    });
+
+    const app11 = new Moon({
+      el: "#app11",
+      data: {
+        parentMsg: "Parent Data"
+      }
+    });
+
+  </script>
+
+  <textarea readonly id="code" style="color:white; background-color: rgba(45, 45, 53, 0.815); resize: none; position:fixed; height: 100%; top:0px; width: 50%; right:0px;"></textarea>
+  <script >
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+          document.getElementById("code").innerHTML=xhr.responseText;
+        }
+    }
+    xhr.open('GET', 'http://ugallu.github.io/moonjs/index.html', true);
+    xhr.send(null);
+  </script>
+</body>
