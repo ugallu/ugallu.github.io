@@ -1,10 +1,4 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
-</head>
-
 <body>
-
-<div id="content" style="margin: 5px; top:5px; left: 5px; width: 50%;">
 
   <script src="https://unpkg.com/moonjs"></script>
 
@@ -48,17 +42,17 @@
   </div>
 
   <script>
-    const app3 = new Moon({
-      el: "#app3",
-      data: {
-        msg: "lőbetalpmet sávíhynévggüF .3"
-      },
-      methods: {
-        reverse: function (str) {
-          return str.split("").reverse().join("");
-        }
-      }
-    });
+        const app3 = new Moon({
+          el: "#app3",
+          data: {
+            msg: "lőbetalpmet sávíhynévggüF .3"
+          },
+          methods: {
+            reverse: function (str) {
+              return str.split("").reverse().join("");
+            }
+          }
+        });
   </script>
 
   <!-- 4. IF példa !-->
@@ -69,14 +63,14 @@
 
   <script>
 
-    const app4 = new Moon({
-      el: "#app4",
-      data: {
-        condition: true
-      }
-    });
+        const app4 = new Moon({
+          el: "#app4",
+          data: {
+            condition: true
+          }
+        });
 
-  //app4.set('condition', false);
+      //app4.set('condition', false);
 
   </script>
 
@@ -89,14 +83,14 @@
   </div>
 
   <script>
-    const app5 = new Moon({
-      el: "#app5",
-      data: {
-        list: ['Item - 1', 'Item - 2', 'Item - 3', 'Item - 4']
-      }
-    });
+        const app5 = new Moon({
+          el: "#app5",
+          data: {
+            list: ['Item - 1', 'Item - 2', 'Item - 3', 'Item - 4']
+          }
+        });
 
-    app5.set('list', ['5. Generált listaelem', '5. Generált másik listaelem'])
+        app5.set('list', ['5. Generált listaelem', '5. Generált másik listaelem'])
 
   </script>
 
@@ -108,18 +102,18 @@
 
   <script>
 
-    const app6 = new Moon({
-      el: "#app6",
-      data: {
-        count: 0
-      },
-      methods: {
-        increment: function () {
-          //Increment the count by one
-          this.set('count', this.get('count') + 1);
-        }
-      }
-    });
+        const app6 = new Moon({
+          el: "#app6",
+          data: {
+            count: 0
+          },
+          methods: {
+            increment: function () {
+              //Increment the count by one
+              this.set('count', this.get('count') + 1);
+            }
+          }
+        });
 
   </script>
 
@@ -131,13 +125,13 @@
 
   <script>
 
-    Moon.component('my-component', {
-      template: "<p>7. Ez egy komponens</p>"
-    });
+        Moon.component('my-component', {
+          template: "<p>7. Ez egy komponens</p>"
+        });
 
-    const app7 = new Moon({
-      el: "#app7"
-    });
+        const app7 = new Moon({
+          el: "#app7"
+        });
 
   </script>
 
@@ -151,19 +145,19 @@
 
   <script>
 
-    Moon.component('my-component', {
-      props: ['content'],
-      template: "<p>8. Data from Parent: {{content}}</p>"
-    });
+        Moon.component('my-component', {
+          props: ['content'],
+          template: "<p>8. Data from Parent: {{content}}</p>"
+        });
 
-    const app8 = new Moon({
-      el: "#app8",
-      data: {
-        parentMsg: "ez egy átadott paraméter"
-      }
-    });
+        const app8 = new Moon({
+          el: "#app8",
+          data: {
+            parentMsg: "ez egy átadott paraméter"
+          }
+        });
 
-    app8.set('parentMsg', 'New Parent Data')
+        app8.set('parentMsg', 'New Parent Data')
 
   </script>
 
@@ -176,25 +170,25 @@
 
   <script>
 
-    Moon.component("counter-component", {
-      template: `<div>
-    <button m-on:click="increment">9. Különálló komponensalapú objektumok módosítása fv-el {{count}}</button>
-  </div>`,
-      data: function () {
-        return {
-          count: 0
-        }
-      },
-      methods: {
-        increment: function () {
-          this.set("count", this.get("count") + 1);
-        }
-      }
-    });
+        Moon.component("counter-component", {
+          template: `<div>
+        <button m-on:click="increment">9. Különálló komponensalapú objektumok módosítása fv-el {{count}}</button>
+      </div>`,
+          data: function () {
+            return {
+              count: 0
+            }
+          },
+          methods: {
+            increment: function () {
+              this.set("count", this.get("count") + 1);
+            }
+          }
+        });
 
-    const app9 = new Moon({
-      el: "#app9"
-    });
+        const app9 = new Moon({
+          el: "#app9"
+        });
 
   </script>
 
@@ -212,34 +206,34 @@
 
   <script>
 
-    Moon.component("counter-child-component", {
-      template: `<div>
-    <button m-on:click="increment">Increment {{count}}</button>
-  </div>`,
-      data: function () {
-        return {
-          count: 0
-        }
-      },
-      methods: {
-        increment: function () {
-          this.set("count", this.get("count") + 1);
-          this.emit("increment");
-        }
-      }
-    });
+        Moon.component("counter-child-component", {
+          template: `<div>
+        <button m-on:click="increment">Increment {{count}}</button>
+      </div>`,
+          data: function () {
+            return {
+              count: 0
+            }
+          },
+          methods: {
+            increment: function () {
+              this.set("count", this.get("count") + 1);
+              this.emit("increment");
+            }
+          }
+        });
 
-    const app10 = new Moon({
-      el: "#app10",
-      data: {
-        total: 0
-      },
-      methods: {
-        incrementTotal: function () {
-          this.set("total", this.get("total") + 1);
-        }
-      }
-    });
+        const app10 = new Moon({
+          el: "#app10",
+          data: {
+            total: 0
+          },
+          methods: {
+            incrementTotal: function () {
+              this.set("total", this.get("total") + 1);
+            }
+          }
+        });
 
   </script>
 
@@ -259,35 +253,92 @@
 
   <script>
 
-    Moon.component('slot-component', {
-      template: `<div>
-      <slot></slot> 
-    <slot name="bslot"></slot>
-    <h5>Component Content.</h5>
-    <slot name="aslot"></slot>
-    <slot name="bslot"></slot>
-  </div>`
-    });
+        Moon.component('slot-component', {
+          template: `<div>
+          <slot></slot> 
+        <slot name="bslot"></slot>
+        <h5>Component Content.</h5>
+        <slot name="aslot"></slot>
+        <slot name="bslot"></slot>
+      </div>`
+        });
 
-    const app11 = new Moon({
-      el: "#app11",
-      data: {
-        parentMsg: "Parent Data"
-      }
-    });
+        const app11 = new Moon({
+          el: "#app11",
+          data: {
+            parentMsg: "Parent Data"
+          }
+        });
 
   </script>
 
-</div>
+  <h3>12. Router</h3>
+
+  <!-- ROUTER -->
+
+
+  <script src="https://unpkg.com/moon-router"></script>
+
+
+  <div id="appR">
+    <router-view></router-view>
+  </div>
+
+  <script>
+
+        Moon.use(MoonRouter);
+
+        Moon.component("Root", {
+          template: `<div>
+            <h4>Welcome to "/"</h4>
+            <router-link to="/hello">To /hello</router-link>
+          </div>`
+        });
+
+        Moon.component("Hello", {
+          template: `<div>
+            <h4>You have Reached "/hello"</h4>
+            <router-link to="/valami">Valami</router-link>
+            <router-link to="/etwas">Etwas</router-link>
+          </div>`
+        });
+
+        Moon.component("Named", {
+          props: ['route'],
+          template: `<div>
+                            <h4>You have Reached "{{route.params.named}}"</h4>
+                            <router-link to="/">Home</router-link>
+                          </div>`
+        });
+
+        const router = new MoonRouter({
+          base: "file:///home/gergo/projects/moonjs-tutorial/",
+          map: {
+            "/": "Hello", // `named` can be shown with {{route.params.named}}
+            "/:named": "Named"
+          },
+          mode: "history"
+        });
+
+        new Moon({
+          el: "#appR",
+          router: router
+        });
+
+
+  </script>
+
   <textarea readonly id="code" style="color:white; background-color: rgba(45, 45, 53, 0.815); resize: none; position:fixed; height: 100%; top:0px; width: 50%; right:0px;"></textarea>
   <script>
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == XMLHttpRequest.DONE) {
-        document.getElementById("code").innerHTML = xhr.responseText;
-      }
-    }
-    xhr.open('GET', 'http://ugallu.github.io/moonjs/index.html', true);
-    xhr.send(null);
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                  if (xhr.readyState == XMLHttpRequest.DONE) {
+                    document.getElementById("code").innerHTML = xhr.responseText;
+                  }
+                }
+                xhr.open('GET', 'http://ugallu.github.io/moonjs/index.html', true);
+                xhr.send(null);
   </script>
+
+
 </body>
