@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>Particles</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<canvas id="spacecanvas" width="800px" height="600px"></canvas>
+
+<script>
+function Space(canvas_id, num_of_units) {
+    
+    var canvas = document.getElementById(canvas_id);
+    var width = canvas.width;
+    var height = canvas.height;
+    var origin_x = width / 2.0;
+    var origin_y = height / 2.0;
+    var units = [];
+
+    // unit creation
+    function create_unit() {
+
+        var unit = {};
+        unit.color = '#ffe';
+        unit.x = Math.random() * width - origin_x;
+        unit.y = Math.random() * height - origin_y;
+
+
+        unit.dsize = Math.random() * 2.5 + 2;
+        unit.mass = unit.size * unit.size;
+        unit.dx = Math.random() * 1 - 0.5;
+        unit.dy = Math.random() * 1 - 0.5;
+
+        unit.dx *= 5;
+        unit.dy *= 5;
+        unit.ddx = 0.0;
+        unit.ddy = 0.0;
+
+
+        return unit;
+    }
+
+    // special unit
+    function create_specialunit(_x, _y, _z, _size, _mass, _dx, _dy, _dz, _color) {
+
+        var unit = {};
+        unit.color = _color;
+
+        unit.x = _x;
+        unit.y = _y;
+        unit.z = _y;
+
+        unit.dsize = _size;
+        unit.mass = _mass;
+
+        unit.dx = _dx;
+        unit.dy = _dy;
+        unit.dz = _dz;
+
+        unit.ddx = 0.0;
+        unit.ddy = 0.0;
+        unit.ddz = 0.0;
+
+        return unit;
+    }
+
+    // move step on one unit
+    function move(unit) {
+
+        unit.dx += unit.ddx;
+        unit.dy += unit.ddy;
+        unit.dz += unit.ddz;
+
+        if ((unit.x + unit.dx) < 0.0 || (unit.x + unit.dx) > width) unit.dx *= -1;
+        if ((unit.y + unit.dy) < 0.0 || (unit.y + unit.dy) > height) unit.dy *= -1;
+        if ((unit.z + unit.dz) < 0.0 || (unit.z + unit.dz) > height) unit.dz *= -1;
+
+        unit.x += unit.dx;
+        unit.y += unit.dy;
+        unit.z += unit.dz;
+
+        unit.size = unit.dsize + unit.z / 150;
+
+    }
+
+    function update_units(ctx, timeout) {
+        for (var i = 0; i < units.length; i++) {
+            units[i].ddx = 0;
+            units[i].ddy = 0;
+            units[i].ddz = 0;
+        }
+
+        for (var i = 0; i < units.length; i++) {
+
+            for (var j = i + 1; j < units.length; j++) {
+
+                dx = units[i].x - units[j].x;
+                dy = units[i].y - units[j].y;
+                dz = units[i].z - units[j].z;
+                dx *= 100000;
+                dy *= 100000;
+                dz *= 100000;
+
+                dc = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                grav_strength = (units[i].mass * units[j].mass) / dc;
+                // for practical reason
+                grav_strength *=timeout;
+
+                grav_x = dx / dc * grav_strength;
+                grav_y = dy / dc * grav_strength;
+                grav_z = dz / dc * grav_strength;
+
+                units[i].ddx += grav_x / units[i].mass * -1;
+                units[i].ddy += grav_y / units[i].mass * -1;
+                units[i].ddz += grav_z / units[i].mass * -1;
+                units[j].ddx += grav_x / units[j].mass;
+                units[j].ddy += grav_y / units[j].mass;
+                units[j].ddz += grav_z / units[j].mass;
+
+            }
+
+
+            move(units[i]);
+            ctx.fillStyle = units[i].color;
+
+            ctx.fillRect(units[i].x, units[i].y, units[i].size, units[i].size);
+            
+        }
+    }
+
+    this.simulate = function (timeout) {
+
+        // get reference to drawing area
+        var canvas = document.getElementById(canvas_id);
+        
+        if (canvas.getContext) {
+
+            // create drawing context
+            var ctx = canvas.getContext('2d');
+            
+            // fill black
+            ctx.fillStyle = "#1a262b";
+            ctx.fillRect(0, 0, width, height);
+            update_units(ctx, timeout);
+            
+        }
+
+    }
+    
+    // INIT
+
+    // create SUN
+ units.push(create_specialunit(width/2,height/2,height/2,7,100000,0,0,0,'#fecea8'));
+ 
+
+    scale = 250;
+    for (var i = 0; i < 20; i++) {
+        tx = Math.random() - 0.5;
+        ty = Math.random() - 0.5;
+        tz = Math.random() - 0.5;
+
+        vx = ty * 2;
+        vy = tz * -2;
+        vz = tx * -2;
+        tx = tx * scale;
+        ty = ty * scale;
+        tz = tz * scale;
+        units.push(create_specialunit(width / 2.0 + tx, height / 2.0 + ty, height / 2.0 + tz, 0, 100.1, vx, vy, vz, '#89B888'));
+
+
+    }
+
+    return this;
+}
+
+function initalize(){
+// start
+var space = Space('spacecanvas', 100);
+var timeout = 10; // ms
+setInterval(function(){space.simulate(timeout/5.0);}, timeout);
+}
+
+
+
+window.onload = initalize();
+
+</script>
+</body>
+</html>
