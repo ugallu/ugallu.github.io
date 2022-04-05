@@ -6,3 +6,5 @@ relative_links:
 include:
   - exos_exodus/list.md
   - exos_exodus/portugal-lisbon/overview.md
+
+theme: jekyll-theme-slate
