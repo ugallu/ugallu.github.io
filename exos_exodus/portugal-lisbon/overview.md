@@ -14,13 +14,13 @@ Lisbon:
 * ~+15% more expensive than Budapest
 * ~+50% more expensive housing than Budapest
 * overally budgetfriendly
-* cheapest was to check the city and have some sightseeing: Tram28
+* cheapest way to check the city and have some sightseeing: Tram28
 * Note: on Tram28, there is some pickpocket danger
 * Don't bring your high heels: cobblestones are everywhere
 * Cheap public transport, almost impossible to park you car
 * Use reloadable card for transports
 * friendly/helpful locals
-* Shop/eat outside baxia districten too
+* Shop/eat outside baxia district too
 * Eat outside the restaurant streets
 * eat late, stay out late, party late
 * dinner after 7 in restaurants
